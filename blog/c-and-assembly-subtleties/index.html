@@ -1158,6 +1158,62 @@ L2: <strong>load</strong> value of <em>condition</em> from memory, compare it to
 
 <h6 id="ps-don-t-take-me-for-a-source-of-absolute-truth-on-these-topics-some-information-here-could-be-misleading-or-i-hope-not-wrong-at-all-in-both-cases-please-send-me-an-email-and-let-me-know-i-ll-be-happy-to-learn-something-new-and-to-correct-the-post"><em>PS: Don&rsquo;t take me for a source of absolute truth on these topics, some information here could be misleading or (I hope not&hellip;) wrong at all. In both cases please send me an email and let me know, I&rsquo;ll be happy to learn something new and to correct the post.</em></h6>
 
+<hr />
+
+<h3 id="update-26-08-19-c-compiler-optimizations">Update 26/08/19 - C Compiler Optimizations</h3>
+
+<p>It&rsquo;s interesting to observe that in a &ldquo;real&rdquo; program like the following one, compiling  with gcc -O3 (level 3 optimizations enabled) yields to the same identical assembly code for both versions.</p>
+
+<pre><code>$ cat ex-v1.c
+#include &lt;stdio.h&gt;
+#define IN  1
+#define OUT 0
+int main(){
+    int c;
+    int state;
+    while((c = getchar()) != EOF){
+        if(c == '\n' || c == '\t' || c == ' '){
+            if(state == IN){
+                putchar('\n');
+                state = OUT;
+            }
+        }
+        else{
+            if(state == OUT)
+                state = IN;
+            putchar(c);
+        }
+    }
+    return 0;
+}
+$ cat ex-v2.c
+#include &lt;stdio.h&gt;
+#define IN  1
+#define OUT 0
+int main(){
+    int c;
+    int state;
+    while((c = getchar()) != EOF){
+        if(c == '\n' || c == '\t' || c == ' '){
+            if(state == IN){
+                putchar('\n');
+                state = OUT;
+            }
+        }
+        else{
+            state = IN;
+            putchar(c);
+        }
+    }
+    return 0;
+}
+$ gcc -O3 -S ex-v1.c ex-v2.c &amp;&amp; diff ex-v1.s ex-v2.s
+1c1
+&lt;   .file   &quot;ex-v1.c&quot;
+---
+&gt;   .file   &quot;ex-v2.c&quot; 
+</code></pre>
+
 
             </div>
             
