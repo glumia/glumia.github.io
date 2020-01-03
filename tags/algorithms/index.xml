@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Python on glumia&#39;s blog</title>
-    <link>https://glumia.github.io/tags/python/</link>
-    <description>Recent content in Python on glumia&#39;s blog</description>
+    <title>Algorithms on glumia&#39;s blog</title>
+    <link>https://glumia.github.io/tags/algorithms/</link>
+    <description>Recent content in Algorithms on glumia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
     <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://glumia.github.io/tags/python/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://glumia.github.io/tags/algorithms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -18,15 +18,6 @@
       
       <guid>https://glumia.github.io/blog/the-levenshtein-distance/</guid>
       <description>It&amp;rsquo;s fascinating how everything you can think of in computer science 9 times out of 10 was already thought and probably studied by someone else. Today I was thinking about a way to suggest corrections for addresses inserted by our customers when I started to imagine an algorithm that used the mathematical notion of &amp;lsquo;distance&amp;rsquo; (check &amp;lsquo;Metric (mathematics)&amp;rsquo; on Wikipedia 1 ) to give them some suggestions based on a set of valid addresses present on our DB.</description>
-    </item>
-    
-    <item>
-      <title>GOG Store - Overkill search</title>
-      <link>https://glumia.github.io/blog/gog-store-overkill-search/</link>
-      <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://glumia.github.io/blog/gog-store-overkill-search/</guid>
-      <description>I had 1.30 euro remaining on my GOG wallet and I had to use them before sept. 19 or I would lose them. So I started to search on the GOG Store for a game whose price would be less or equal to 1.30 euro and greater than 0€ (since I wasn&amp;rsquo;t searching a free game&amp;hellip;) but the default filters of the website&amp;rsquo;s search engine allowed me to filter only games whose price was less than 5€.</description>
     </item>
     
   </channel>

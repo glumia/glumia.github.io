@@ -6,7 +6,7 @@
     <description>Recent content on glumia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 25 Aug 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://glumia.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,15 @@
       
       <guid>https://glumia.github.io/about/</guid>
       <description>I am a PoliTo’s student in computer engineering with a passion for scripting, cybersecurity and Linux systems. In my free time I try to contribute to the FOSS community, I like to keep myself updated on the latest news about IT and I have a weakness for command line interfaces.</description>
+    </item>
+    
+    <item>
+      <title>The Levenshtein Distance</title>
+      <link>https://glumia.github.io/blog/the-levenshtein-distance/</link>
+      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/blog/the-levenshtein-distance/</guid>
+      <description>It&amp;rsquo;s fascinating how everything you can think of in computer science 9 times out of 10 was already thought and probably studied by someone else. Today I was thinking about a way to suggest corrections for addresses inserted by our customers when I started to imagine an algorithm that used the mathematical notion of &amp;lsquo;distance&amp;rsquo; (check &amp;lsquo;Metric (mathematics)&amp;rsquo; on Wikipedia 1 ) to give them some suggestions based on a set of valid addresses present on our DB.</description>
     </item>
     
     <item>
