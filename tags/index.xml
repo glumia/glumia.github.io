@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on glumia&#39;s blog</title>
@@ -21,15 +21,6 @@
     </item>
     
     <item>
-      <title>Python</title>
-      <link>https://glumia.github.io/tags/python/</link>
-      <pubDate>Fri, 03 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://glumia.github.io/tags/python/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Assembly</title>
       <link>https://glumia.github.io/tags/assembly/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
@@ -41,9 +32,27 @@
     <item>
       <title>C</title>
       <link>https://glumia.github.io/tags/c/</link>
-      <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
       
       <guid>https://glumia.github.io/tags/c/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Clojure</title>
+      <link>https://glumia.github.io/tags/clojure/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/tags/clojure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Math</title>
+      <link>https://glumia.github.io/tags/math/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/tags/math/</guid>
       <description></description>
     </item>
     
@@ -57,7 +66,25 @@
     </item>
     
     <item>
-      <title>scripting</title>
+      <title>Programming</title>
+      <link>https://glumia.github.io/tags/programming/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/tags/programming/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://glumia.github.io/tags/python/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Scripting</title>
       <link>https://glumia.github.io/tags/scripting/</link>
       <pubDate>Wed, 21 Aug 2019 00:00:00 +0000</pubDate>
       

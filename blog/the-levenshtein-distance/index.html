@@ -1080,12 +1080,12 @@ margin-left: -4%;
 <pre><code>from itertools import zip_longest
 
 
-def levenshtein_distance(x, y):
-    &quot;&quot;&quot;Compute the Levenshtein distance between strings x and y.&quot;&quot;&quot;
+def strings_distance(x, y):
+    &quot;&quot;&quot;Compute a distance between strings x and y.&quot;&quot;&quot;
     return sum((0 if m == n else 1 for m, n in zip_longest(x, y)))
 
 
-def suggestions(s, dictionary, distance=levenshtein_distance, tol=4):
+def suggestions(s, dictionary, distance=strings_distance, tol=4):
     &quot;&quot;&quot;Use the distance function to search similar words inside the dictionary.
 
     :param s: the string to get suggestions for.
@@ -1122,6 +1122,11 @@ def suggestions(s, dictionary, distance=levenshtein_distance, tol=4):
                 </div>
                 
                 <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="https://glumia.github.io/blog/clojure-python-c-three-programming-languages-one-algorithm/">Clojure, Python, C: three programming languages, one algorithm</a>
+                    <img class="icon" src="https://glumia.github.io/img/next.svg" alt="next" />
+                </div>
                 
             </div>
             

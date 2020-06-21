@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>glumia&#39;s blog</title>
@@ -6,7 +6,7 @@
     <description>Recent content on glumia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Fri, 03 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://glumia.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -27,6 +27,17 @@
       
       <guid>https://glumia.github.io/about/</guid>
       <description>I am a PoliTo’s student in computer engineering with a passion for scripting, cybersecurity and Linux systems. In my free time I try to contribute to the FOSS community, I like to keep myself updated on the latest news about IT and I have a weakness for command line interfaces.</description>
+    </item>
+    
+    <item>
+      <title>Clojure, Python, C: three programming languages, one algorithm</title>
+      <link>https://glumia.github.io/blog/clojure-python-c-three-programming-languages-one-algorithm/</link>
+      <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://glumia.github.io/blog/clojure-python-c-three-programming-languages-one-algorithm/</guid>
+      <description>Too lazy to write something long and well tought now ¯\_(ツ)_/¯
+Just a bit disappointed by how bad Clojure&amp;rsquo;s performance are (but hey, immutability is not free!) and by how damn difficult it is to improve them.
+Source: Clojure, Python, C</description>
     </item>
     
     <item>
