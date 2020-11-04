@@ -1071,18 +1071,13 @@ margin-left: -4%;
             <div class="markdown">
                 
     
-    <p><figure class="progressive"><img class="progressive__img progressive--not-loaded" data-progressive="https://glumia.github.io/blog/gog-store-overkill-search/gogemail.png" src="https://glumia.github.io/blog/gog-store-overkill-search/low/gogemail.png" alt="image" /></p></figure>
-
+    <p><img src="https://glumia.github.io/blog/gog-store-overkill-search/gogemail.png" alt="image"></p>
 <p>I had 1.30 euro remaining on my GOG wallet and I had to use them before sept. 19 or I would lose them. So I started to search on the GOG Store for a game whose price would be less or equal to 1.30 euro and greater than 0€ (since I wasn&rsquo;t searching a free game&hellip;) but the default filters of the website&rsquo;s search engine allowed me to filter only games whose price was less than 5€.
 Given that they where still 530 results and that I&rsquo;m a very lazy person I worked my way out to automate the search using the GOG API and a simple Python script.</p>
-
 <p>After a quick look at <a href="https://gogapidocs.readthedocs.io/en/latest">https://gogapidocs.readthedocs.io/en/latest</a> I came to this bash command to get all the games whose price was less than 5€:</p>
-
 <pre><code>for i in {1..12}; do curl -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/json&quot; &quot;https://embed.gog.com/games/ajax/filtered?mediaType=game&amp;price=u5&amp;sort=bestselling&amp;page=$i&quot; &gt; games$i.json ; done
 </code></pre>
-
 <p>Then I wrote this python script to process the data and (eventually) get the games I was searching for:</p>
-
 <pre><code>import json
 import requests
 
@@ -1111,9 +1106,7 @@ if len(data)&gt;0:
 else:
     print(&quot;No games in the 0,01-1.30 price range!&quot;) 
 </code></pre>
-
 <p>Unfortunately the search wasn&rsquo;t successful and after 1 and half hour I&rsquo;m still with 1.3 euro on my wallet and nothing to buy. I suppose I&rsquo;ll have to add some funds to make them valid indefinitely.</p>
-
 <p>PS: Yes, I know, checking manually the 530 results would have taken less time&hellip; but tinkering with API&rsquo;s and code is definitively more funny.</p>
 
 

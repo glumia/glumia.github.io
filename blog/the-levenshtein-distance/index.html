@@ -1071,12 +1071,8 @@ margin-left: -4%;
             <div class="markdown">
                 
     
-    
-
-<p>It&rsquo;s fascinating how everything you can think of in computer science 9 times out of 10 was already thought and probably studied by someone else. Today I was thinking about a way to suggest corrections for addresses inserted by our customers when I started to imagine an algorithm that used the mathematical notion of &lsquo;distance&rsquo; (check &lsquo;Metric (mathematics)&rsquo; on Wikipedia <sup class="footnote-ref" id="fnref:1"><a href="#fn:1">1</a></sup> ) to give them some suggestions based on a set of valid addresses present on our DB. Well, now I find out that it&rsquo;s a well-known problem in computer science, that a wide range of algorithms<sup class="footnote-ref" id="fnref:2"><a href="#fn:2">2</a></sup> has already been designed to solve it and that what I was starting to think on was a variation of the Levenshtein distance!</p>
-
+    <p>It&rsquo;s fascinating how everything you can think of in computer science 9 times out of 10 was already thought and probably studied by someone else. Today I was thinking about a way to suggest corrections for addresses inserted by our customers when I started to imagine an algorithm that used the mathematical notion of &lsquo;distance&rsquo; (check &lsquo;Metric (mathematics)&rsquo; on Wikipedia <sup id="fnref:1"><a href="#fn:1" class="footnote-ref" role="doc-noteref">1</a></sup> ) to give them some suggestions based on a set of valid addresses present on our DB. Well, now I find out that it&rsquo;s a well-known problem in computer science, that a wide range of algorithms<sup id="fnref:2"><a href="#fn:2" class="footnote-ref" role="doc-noteref">2</a></sup> has already been designed to solve it and that what I was starting to think on was a variation of the Levenshtein distance!</p>
 <h4 id="a-code-snippet-in-python-that-implements-those-ideas">A code snippet in Python that implements those ideas</h4>
-
 <pre><code>from itertools import zip_longest
 
 
@@ -1096,18 +1092,17 @@ def suggestions(s, dictionary, distance=strings_distance, tol=4):
 
     &quot;&quot;&quot;
     return {word for word in dictionary if distance(s, word) &lt;= tol}
-</code></pre>
-<div class="footnotes">
-
-<hr />
-
+</code></pre><section class="footnotes" role="doc-endnotes">
+<hr>
 <ol>
-<li id="fn:1"><a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">https://en.wikipedia.org/wiki/Metric_(mathematics)</a>
- <a class="footnote-return" href="#fnref:1"><sup>[return]</sup></a></li>
-<li id="fn:2"><a href="https://en.wikipedia.org/wiki/String_metric">https://en.wikipedia.org/wiki/String_metric</a>
- <a class="footnote-return" href="#fnref:2"><sup>[return]</sup></a></li>
+<li id="fn:1" role="doc-endnote">
+<p><a href="https://en.wikipedia.org/wiki/Metric_(mathematics)">https://en.wikipedia.org/wiki/Metric_(mathematics)</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
+<li id="fn:2" role="doc-endnote">
+<p><a href="https://en.wikipedia.org/wiki/String_metric">https://en.wikipedia.org/wiki/String_metric</a> <a href="#fnref:2" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
+</li>
 </ol>
-</div>
+</section>
 
 
             </div>

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Optimization on glumia&#39;s blog</title>
@@ -6,18 +6,14 @@
     <description>Recent content in Optimization on glumia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 25 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://glumia.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Sun, 25 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://glumia.github.io/tags/optimization/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C and Assembly - Subtleties</title>
       <link>https://glumia.github.io/blog/c-and-assembly-subtleties/</link>
       <pubDate>Sun, 25 Aug 2019 00:00:00 +0000</pubDate>
       
       <guid>https://glumia.github.io/blog/c-and-assembly-subtleties/</guid>
-      <description>Should I write this int flag = 0; # Boolean value, can only be 0 or 1 while(some_condition){ ... if(flag == 0) flag = 1; ... }  or int flag = 0; while(some_condition){ ... flag = 1; ... }  what performs better? While I was writing some C code I came up to this little question. In a while loop at a certain point we have to set a boolean flag&amp;rsquo;s value to 1.</description>
+      <description>Should I write this int flag = 0;	# Boolean value, can only be 0 or 1 while(some_condition){ ... if(flag == 0) flag = 1; ... }  or int flag = 0; while(some_condition){ ... flag = 1; ... }  what performs better? While I was writing some C code I came up to this little question. In a while loop at a certain point we have to set a boolean flag&amp;rsquo;s value to 1.</description>
     </item>
     
   </channel>
