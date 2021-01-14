@@ -34,17 +34,13 @@
 
 
 
-<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.016477b2d86bda4919530fc892597fc23e5257d6bd377a1b8a6a01ed4c96df2b.css">
+<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.101ae5e128b078eed9b45dc5f7444b648439275d2762de69b3a51bf823a3ef12.css">
 
 
 <link rel="stylesheet" media="(min-width: 600px)" href="https://glumia.github.io/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css">
 
 
 <link rel="stylesheet" media="(min-width: 769px)" href="https://glumia.github.io/min769px.min.120cb35d201663ad94a3cdf59377253c32841093bc26a904c150f2037a2e074a.css">
-
-
-<link rel="stylesheet" href="https://glumia.github.io/openring.min.26ec8e93ec802619ea8596084fb0b1d7632b5cc16cf403ab996fa0b1404e371b.css">
-
 
 
 <link rel="shortcut icon"
@@ -134,120 +130,158 @@
             </div>
             <div class="markdown">
                 <h3 id="should-i-write-this">Should I write this</h3>
-<pre><code>int flag = 0;		# Boolean value, can only be 0 or 1
-while(some_condition){
-    ...
-    if(flag == 0)
-            flag = 1;
-    ...
-}
-</code></pre>
-<h3 id="or">or</h3>
-<pre><code>int flag = 0;
-while(some_condition){
-    ...
-    flag = 1;
-    ...
-}
-</code></pre>
-<h3 id="what-performs-better">what performs better?</h3>
-<p>While I was writing some C code I came up to this little question. In a while loop at a certain point we have to set a boolean flag&rsquo;s value to 1. So, should we check it&rsquo;s value first and eventually assign it to 1 or just assign it to 1 anyway ?</p>
-<p>One misleading reasoning could be: &ldquo;better the first version since we don&rsquo;t make an assignment if it&rsquo;s not necessary!&rdquo;</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>		<span style="color:#8f5902;font-style:italic">// Boolean value, can only be 0 or 1
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">some_condition</span><span style="color:#000;font-weight:bold">){</span>
+        <span style="color:#8f5902;font-style:italic">// ...
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>
+                <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#8f5902;font-style:italic">// ...
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h3 id="or">or</h3>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">some_condition</span><span style="color:#000;font-weight:bold">){</span>
+        <span style="color:#8f5902;font-style:italic">// ...
+</span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>
+        <span style="color:#8f5902;font-style:italic">// ...
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#000;font-weight:bold">}</span>
+</code></pre></div><h3 id="what-performs-better">what performs better?</h3>
+<p>While I was writing some C code I came up to this little question. In a while loop at a
+certain point we have to set a boolean flag&rsquo;s value to 1. So, should we check it&rsquo;s value
+first and eventually assign it to 1 or just assign it to 1 anyway ?</p>
+<p>One misleading reasoning could be: &ldquo;better the first version since we don&rsquo;t make an
+assignment if it&rsquo;s not necessary!&rdquo;</p>
 <p>But let&rsquo;s take a look at the assembly code generated by the two versions.</p>
 <h3 id="first-version---check-and-eventually-set">First version - Check and eventually set</h3>
-<pre><code>int main(){                                │        movl    $42, -8(%rbp)
-        int condition = 42;                │        movl    $0, -4(%rbp)
-        int flag = 0;                      │        jmp     .L2
-        while(condition){                  │.L3:
-                if(flag == 0)              │        cmpl    $0, -4(%rbp)
-                        flag = 1;          │        jne     .L2
-        }                                  │        movl    $1, -4(%rbp)
-}                                          │.L2:
-~                                          │        cmpl    $0, -8(%rbp)
-~                                          │        jne     .L3
-</code></pre>
-<p>This assembly code says the following to the CPU:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>                                <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">condition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">;</span>                <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>                      <span style="color:#a40000">│</span>        <span style="color:#000">jmp</span>     <span style="color:#000;font-weight:bold">.</span><span style="color:#000">L2</span>
+            <span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">condition</span><span style="color:#000;font-weight:bold">){</span>                  <span style="color:#a40000">│</span><span style="color:#000;font-weight:bold">.</span><span style="color:#f57900">L3</span><span style="color:#000;font-weight:bold">:</span>
+                    <span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">)</span>              <span style="color:#a40000">│</span>        <span style="color:#000">cmpl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+                            <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>          <span style="color:#a40000">│</span>        <span style="color:#000">jne</span>     <span style="color:#000;font-weight:bold">.</span><span style="color:#000">L2</span>
+            <span style="color:#000;font-weight:bold">}</span>                                  <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000;font-weight:bold">}</span>                                          <span style="color:#a40000">│</span><span style="color:#000;font-weight:bold">.</span><span style="color:#f57900">L2</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#ce5c00;font-weight:bold">~</span>                                          <span style="color:#a40000">│</span>        <span style="color:#000">cmpl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#ce5c00;font-weight:bold">~</span>                                          <span style="color:#a40000">│</span>        <span style="color:#000">jne</span>     <span style="color:#000;font-weight:bold">.</span><span style="color:#000">L3</span>
+</code></pre></div><p>This assembly code says the following to the CPU:</p>
 <p>Jump to L2.<br>
-L3: <strong>load</strong> value of <em>flag</em> from memory, compare it to $0, if they aren&rsquo;t equal jump to L2 else <strong>store</strong> 1 into flag&rsquo;s memory address and then jump to L2.<br>
-L2: <strong>load</strong> value of <em>condition</em> from memory, compare it to 0, if they aren&rsquo;t equal jump to L3, else exit.</p>
-<p>Why did I write in bold &ldquo;load&rdquo; and &ldquo;store&rdquo;? Because they represent <em>accesses to memory</em> and these are the most expensive type of instructions for a CPU. Memory response times are generally an order of magnitude higher than CPU elaboration times, therefore <strong>memory accessess represent a bottleneck for process performance</strong>.</p>
-<p>In this version of the program we have 3 accesses to memory in case flag equals 0 (two loads and one store) and 2 accesses in case flag equals 1(only two loads).</p>
-<p>Notice that we also have two jump instructions inside the loop, one to stay inside it until condition equals 0 and one to skip the assigment if flag is already equal to 1.</p>
+L3: <strong>load</strong> value of <em>flag</em> from memory, compare it to $0, if they aren&rsquo;t equal jump to
+L2 else <strong>store</strong> 1 into flag&rsquo;s memory address and then jump to L2.<br>
+L2: <strong>load</strong> value of <em>condition</em> from memory, compare it to 0, if they aren&rsquo;t equal
+jump to L3, else exit.</p>
+<p>Why did I write in bold &ldquo;load&rdquo; and &ldquo;store&rdquo;? Because they represent <em>accesses to memory</em>
+and these are the most expensive type of instructions for a CPU. Memory response times
+are generally an order of magnitude higher than CPU elaboration times, therefore
+<strong>memory accessess represent a bottleneck for process performance</strong>.</p>
+<p>In this version of the program we have 3 accesses to memory in case flag equals 0 (two
+loads and one store) and 2 accesses in case flag equals 1(only two loads).</p>
+<p>Notice that we also have two jump instructions inside the loop, one to stay inside it
+until condition equals 0 and one to skip the assigment if flag is already equal to 1.</p>
 <h3 id="second-version---set-to-1-dont-bother-with-checking-the-previous-value">Second version - Set to 1, don&rsquo;t bother with checking the previous value</h3>
-<pre><code>int main(){                               │        movl    $42, -4(%rbp)
-        int condition = 42;               │        movl    $0, -8(%rbp)
-        int flag = 0;                     │        jmp     .L2
-        while(condition){                 │.L3:
-                flag = 1;                 │        movl    $1, -8(%rbp)
-        }                                 │.L2:
-}                                         │        cmpl    $0, -4(%rbp)
-~                                         │        jne     .L3
-</code></pre>
-<p>In this second version the assembly code says:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>                               <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">condition</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">42</span><span style="color:#000;font-weight:bold">;</span>               <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>                     <span style="color:#a40000">│</span>        <span style="color:#000">jmp</span>     <span style="color:#000;font-weight:bold">.</span><span style="color:#000">L2</span>
+            <span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">condition</span><span style="color:#000;font-weight:bold">){</span>                 <span style="color:#a40000">│</span><span style="color:#000;font-weight:bold">.</span><span style="color:#f57900">L3</span><span style="color:#000;font-weight:bold">:</span>
+                    <span style="color:#000">flag</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">;</span>                 <span style="color:#a40000">│</span>        <span style="color:#000">movl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">8</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+            <span style="color:#000;font-weight:bold">}</span>                                 <span style="color:#a40000">│</span><span style="color:#000;font-weight:bold">.</span><span style="color:#f57900">L2</span><span style="color:#000;font-weight:bold">:</span>
+    <span style="color:#000;font-weight:bold">}</span>                                         <span style="color:#a40000">│</span>        <span style="color:#000">cmpl</span>    <span style="color:#a40000">$</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#0000cf;font-weight:bold">4</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">%</span><span style="color:#000">rbp</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#ce5c00;font-weight:bold">~</span>                                         <span style="color:#a40000">│</span>        <span style="color:#000">jne</span>     <span style="color:#000;font-weight:bold">.</span><span style="color:#000">L3</span>
+</code></pre></div><p>In this second version the assembly code says:</p>
 <p>Jump to L2.<br>
 L3: <strong>store</strong> 1 into <em>flag</em>&rsquo;s memory address.<br>
-L2: <strong>load</strong> value of <em>condition</em> from memory, compare it to 0, if they aren&rsquo;t equal jump to L3, else exit.</p>
-<p>Here we have only one load and one store per iteration, so only two memory accesses whether the flag value is 0 or 1. Also, notice that the only jump instruction is the one necessary to stay inside the loop if the variable <em>condition</em> isn&rsquo;t equal to 0.</p>
+L2: <strong>load</strong> value of <em>condition</em> from memory, compare it to 0, if they aren&rsquo;t equal
+jump to L3, else exit.</p>
+<p>Here we have only one load and one store per iteration, so only two memory accesses
+whether the flag value is 0 or 1. Also, notice that the only jump instruction is the one
+necessary to stay inside the loop if the variable <em>condition</em> isn&rsquo;t equal to 0.</p>
 <h3 id="so-which-version-is-better">So, which version is better?</h3>
-<p>Since the second version implies only two memory accesses against three of the first version in case flag equals 0 and also one less jump instruction, in <em>most real case scenarios</em> it would the right choice if performance is a concern.</p>
-<p>Notice I labeled <em>load</em> and <em>store</em> generically as <em>memory access</em> instructions. This because the two instructions generally require the same computation time. But&hellip; what if the store instruction was way more expensive than the load instruction? In this particular case the first version would have been better but I personally don&rsquo;t know any real case in which this happens to be true.</p>
-<h6 id="ps-dont-take-me-for-a-source-of-absolute-truth-on-these-topics-some-information-here-could-be-misleading-or-i-hope-not-wrong-at-all-in-both-cases-please-send-me-an-email-and-let-me-know-ill-be-happy-to-learn-something-new-and-to-correct-the-post"><em>PS: Don&rsquo;t take me for a source of absolute truth on these topics, some information here could be misleading or (I hope not&hellip;) wrong at all. In both cases please send me an email and let me know, I&rsquo;ll be happy to learn something new and to correct the post.</em></h6>
+<p>Since the second version implies only two memory accesses against three of the first
+version in case flag equals 0 and also one less jump instruction, in
+<em>most real case scenarios</em> it would the right choice if performance is a concern.</p>
+<p>Notice I labeled <em>load</em> and <em>store</em> generically as <em>memory access</em> instructions. This
+because the two instructions generally require the same computation time. But&hellip; what if
+the store instruction was way more expensive than the load instruction? In this
+particular case the first version would have been better but I personally don&rsquo;t know any
+real case in which this happens to be true.</p>
+<p><em>PS: Don&rsquo;t take me for a source of absolute truth on these topics, some information here could be misleading or (I hope not&hellip;) wrong at all. In both cases please send me an email and let me know, I&rsquo;ll be happy to learn something new and to correct the post.</em></p>
 <hr>
 <h3 id="update-260819---c-compiler-optimizations">Update 26/08/19 - C Compiler Optimizations</h3>
-<p>It&rsquo;s interesting to observe that in a &ldquo;real&rdquo; program like the following one, compiling  with gcc -O3 (level 3 optimizations enabled) yields to the same identical assembly code for both versions.</p>
-<pre><code>$ cat ex-v1.c
-#include &lt;stdio.h&gt;
-#define	IN	1
-#define	OUT	0
-int main(){
-    int c;
-    int state;
-    while((c = getchar()) != EOF){
-        if(c == '\n' || c == '\t' || c == ' '){
-            if(state == IN){
-                putchar('\n');
-                state = OUT;
-            }
-        }
-        else{
-            if(state == OUT)
-                state = IN;
-            putchar(c);
-        }
-    }
-    return 0;
-}
-$ cat ex-v2.c
-#include &lt;stdio.h&gt;
-#define	IN	1
-#define	OUT	0
-int main(){
-    int c;
-    int state;
-    while((c = getchar()) != EOF){
-        if(c == '\n' || c == '\t' || c == ' '){
-            if(state == IN){
-                putchar('\n');
-                state = OUT;
-            }
-        }
-        else{
-            state = IN;
-            putchar(c);
-        }
-    }
-    return 0;
-}
-$ gcc -O3 -S ex-v1.c ex-v2.c &amp;&amp; diff ex-v1.s ex-v2.s
-1c1
-&lt; 	.file	&quot;ex-v1.c&quot;
----
-&gt; 	.file	&quot;ex-v2.c&quot; 
-</code></pre>
-
+<p>It&rsquo;s interesting to observe that in a &ldquo;real&rdquo; program like the following one, compiling
+with gcc -O3 (level 3 optimizations enabled) yields to the same identical assembly code
+for both versions.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-C" data-lang="C">    <span style="color:#a40000">$</span> <span style="color:#000">cat</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c</span>
+    <span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stdio.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">#define	IN	1
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">#define	OUT	0
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
+    	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">;</span>
+    	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">state</span><span style="color:#000;font-weight:bold">;</span>
+    	<span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getchar</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">EOF</span><span style="color:#000;font-weight:bold">){</span>
+    		<span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;\n&#39;</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;\t&#39;</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39; &#39;</span><span style="color:#000;font-weight:bold">){</span>
+    			<span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">IN</span><span style="color:#000;font-weight:bold">){</span>
+    				<span style="color:#000">putchar</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;\n&#39;</span><span style="color:#000;font-weight:bold">);</span>
+    				<span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">OUT</span><span style="color:#000;font-weight:bold">;</span>
+    			<span style="color:#000;font-weight:bold">}</span>
+    		<span style="color:#000;font-weight:bold">}</span>
+    		<span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
+    			<span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">OUT</span><span style="color:#000;font-weight:bold">)</span>
+    				<span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">IN</span><span style="color:#000;font-weight:bold">;</span>
+    			<span style="color:#000">putchar</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#000;font-weight:bold">);</span>
+    		<span style="color:#000;font-weight:bold">}</span>
+    	<span style="color:#000;font-weight:bold">}</span>
+    	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#a40000">$</span> <span style="color:#000">cat</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c</span>
+    <span style="color:#8f5902;font-style:italic">#include</span> <span style="color:#8f5902;font-style:italic">&lt;stdio.h&gt;</span><span style="color:#8f5902;font-style:italic">
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">#define	IN	1
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#8f5902;font-style:italic">#define	OUT	0
+</span><span style="color:#8f5902;font-style:italic"></span>    <span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">main</span><span style="color:#000;font-weight:bold">(){</span>
+    	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">c</span><span style="color:#000;font-weight:bold">;</span>
+    	<span style="color:#204a87;font-weight:bold">int</span> <span style="color:#000">state</span><span style="color:#000;font-weight:bold">;</span>
+    	<span style="color:#204a87;font-weight:bold">while</span><span style="color:#000;font-weight:bold">((</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">getchar</span><span style="color:#000;font-weight:bold">())</span> <span style="color:#ce5c00;font-weight:bold">!=</span> <span style="color:#000">EOF</span><span style="color:#000;font-weight:bold">){</span>
+    		<span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;\n&#39;</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39;\t&#39;</span> <span style="color:#ce5c00;font-weight:bold">||</span> <span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#4e9a06">&#39; &#39;</span><span style="color:#000;font-weight:bold">){</span>
+    			<span style="color:#204a87;font-weight:bold">if</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">==</span> <span style="color:#000">IN</span><span style="color:#000;font-weight:bold">){</span>
+    				<span style="color:#000">putchar</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#39;\n&#39;</span><span style="color:#000;font-weight:bold">);</span>
+    				<span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">OUT</span><span style="color:#000;font-weight:bold">;</span>
+    			<span style="color:#000;font-weight:bold">}</span>
+    		<span style="color:#000;font-weight:bold">}</span>
+    		<span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">{</span>
+    			<span style="color:#000">state</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">IN</span><span style="color:#000;font-weight:bold">;</span>
+    			<span style="color:#000">putchar</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">c</span><span style="color:#000;font-weight:bold">);</span>
+    		<span style="color:#000;font-weight:bold">}</span>
+    	<span style="color:#000;font-weight:bold">}</span>
+    	<span style="color:#204a87;font-weight:bold">return</span> <span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">;</span>
+    <span style="color:#000;font-weight:bold">}</span>
+    <span style="color:#a40000">$</span> <span style="color:#000">gcc</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">O3</span> <span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">S</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">c</span> <span style="color:#ce5c00;font-weight:bold">&amp;&amp;</span> <span style="color:#000">diff</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v1</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">s</span> <span style="color:#000">ex</span><span style="color:#ce5c00;font-weight:bold">-</span><span style="color:#000">v2</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">s</span>
+    <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000">c1</span>
+    <span style="color:#ce5c00;font-weight:bold">&lt;</span> 	<span style="color:#000;font-weight:bold">.</span><span style="color:#000">file</span>	<span style="color:#4e9a06">&#34;ex-v1.c&#34;</span>
+    <span style="color:#ce5c00;font-weight:bold">---</span>
+    <span style="color:#ce5c00;font-weight:bold">&gt;</span> 	<span style="color:#000;font-weight:bold">.</span><span style="color:#000">file</span>	<span style="color:#4e9a06">&#34;ex-v2.c&#34;</span> 
+</code></pre></div>
             </div>
 
-            <section class="webring">
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="https://glumia.github.io/img/back.svg" alt="back" />
+                    <a href="https://glumia.github.io/blog/gog-store-overkill-search/">GOG Store - Overkill search</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="https://glumia.github.io/blog/the-levenshtein-distance/">The Levenshtein Distance</a>
+                    <img class="icon" src="https://glumia.github.io/img/next.svg" alt="next" />
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<section class="webring">
   <h3>Articles from blogs I follow around the net</h3>
   <section class="articles">
     
@@ -305,28 +339,6 @@ In the classic 1986 essay, No Silver Bullet, Fred Brooks argued that there is, i
   </p>
 </section>
 
-
-            
-            <br>
-            <div class="navigation">
-                
-                <div>
-                    <img class="icon" src="https://glumia.github.io/img/back.svg" alt="back" />
-                    <a href="https://glumia.github.io/blog/gog-store-overkill-search/">GOG Store - Overkill search</a>
-                </div>
-                
-                <div style="width: 100%;"></div>
-                
-                <div>
-                    <a href="https://glumia.github.io/blog/the-levenshtein-distance/">The Levenshtein Distance</a>
-                    <img class="icon" src="https://glumia.github.io/img/next.svg" alt="next" />
-                </div>
-                
-            </div>
-            
-        </div>
-    </div>
-</div>
 
 
 

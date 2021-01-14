@@ -34,17 +34,13 @@
 
 
 
-<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.016477b2d86bda4919530fc892597fc23e5257d6bd377a1b8a6a01ed4c96df2b.css">
+<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.101ae5e128b078eed9b45dc5f7444b648439275d2762de69b3a51bf823a3ef12.css">
 
 
 <link rel="stylesheet" media="(min-width: 600px)" href="https://glumia.github.io/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css">
 
 
 <link rel="stylesheet" media="(min-width: 769px)" href="https://glumia.github.io/min769px.min.120cb35d201663ad94a3cdf59377253c32841093bc26a904c150f2037a2e074a.css">
-
-
-<link rel="stylesheet" href="https://glumia.github.io/openring.min.26ec8e93ec802619ea8596084fb0b1d7632b5cc16cf403ab996fa0b1404e371b.css">
-
 
 
 <link rel="shortcut icon"
@@ -132,46 +128,71 @@
             </div>
             <div class="markdown">
                 <p><img src="https://glumia.github.io/blog/gog-store-overkill-search/gogemail.png" alt="image"></p>
-<p>I had 1.30 euro remaining on my GOG wallet and I had to use them before sept. 19 or I would lose them. So I started to search on the GOG Store for a game whose price would be less or equal to 1.30 euro and greater than 0€ (since I wasn&rsquo;t searching a free game&hellip;) but the default filters of the website&rsquo;s search engine allowed me to filter only games whose price was less than 5€.
-Given that they where still 530 results and that I&rsquo;m a very lazy person I worked my way out to automate the search using the GOG API and a simple Python script.</p>
-<p>After a quick look at <a href="https://gogapidocs.readthedocs.io/en/latest">https://gogapidocs.readthedocs.io/en/latest</a> I came to this bash command to get all the games whose price was less than 5€:</p>
-<pre><code>for i in {1..12}; do curl -H &quot;Accept: application/json&quot; -H &quot;Content-Type: application/json&quot; &quot;https://embed.gog.com/games/ajax/filtered?mediaType=game&amp;price=u5&amp;sort=bestselling&amp;page=$i&quot; &gt; games$i.json ; done
-</code></pre>
-<p>Then I wrote this python script to process the data and (eventually) get the games I was searching for:</p>
-<pre><code>import json
-import requests
-
-# Merge JSON data in a single list
-data=[]
-for i in range(1,13):
-    fp=open(&quot;games&quot;+str(i)+&quot;.json&quot;,&quot;r&quot;)
-    tmp=json.load(fp)
-    data=data+tmp[&quot;products&quot;]
-    fp.close()
-
-#Filter - Price &lt;= 1.30 and Price &gt; 0 
-data=[x for x in data if float(x[&quot;price&quot;][&quot;finalAmount&quot;])&lt;=1.3 and \
-        float(x[&quot;price&quot;][&quot;finalAmount&quot;])&gt;0]
-
-#Filter - Remove DLC's
-gog_url=&quot;https://www.gog.com&quot;
-DLC_flag_text=&quot;To play this game you also need&quot;
-data=[x for x in data if DLC_flag_text not in \
-        requests.get(gog_url+x[&quot;url&quot;]).text]
-
-
-if len(data)&gt;0:
-    for el in data:
-        print(el[&quot;title&quot;]+&quot;\tPrice: &quot;+el[&quot;price&quot;][&quot;finalAmount&quot;])
-else:
-    print(&quot;No games in the 0,01-1.30 price range!&quot;) 
-</code></pre>
-<p>Unfortunately the search wasn&rsquo;t successful and after 1 and half hour I&rsquo;m still with 1.3 euro on my wallet and nothing to buy. I suppose I&rsquo;ll have to add some funds to make them valid indefinitely.</p>
-<p>PS: Yes, I know, checking manually the 530 results would have taken less time&hellip; but tinkering with API&rsquo;s and code is definitively more funny.</p>
+<p>I had 1.30 euro remaining on my GOG wallet and I had to use them before sept. 19 or I
+would lose them. So I started to search on the GOG Store for a game whose price would be
+less or equal to 1.30 euro and greater than 0€ (since I wasn&rsquo;t searching a free game&hellip;)
+but the default filters of the website&rsquo;s search engine allowed me to filter only games
+whose price was less than 5€.<br>
+Given that they where still 530 results and that I&rsquo;m a very lazy person I worked my way
+out to automate the search using the GOG API and a simple Python script.</p>
+<p>After a quick look at <a href="https://gogapidocs.readthedocs.io/en/latest">https://gogapidocs.readthedocs.io/en/latest</a> I came to this bash
+command to get all the games whose price was less than 5€:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#204a87;font-weight:bold">for</span> i in <span style="color:#ce5c00;font-weight:bold">{</span>1..12<span style="color:#ce5c00;font-weight:bold">}</span><span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">do</span> curl -H <span style="color:#4e9a06">&#34;Accept: application/json&#34;</span> -H <span style="color:#4e9a06">&#34;Content-Type: application/json&#34;</span> <span style="color:#4e9a06">&#34;https://embed.gog.com/games/ajax/filtered?mediaType=game&amp;price=u5&amp;sort=bestselling&amp;page=</span><span style="color:#000">$i</span><span style="color:#4e9a06">&#34;</span> &gt; games<span style="color:#000">$i</span>.json <span style="color:#000;font-weight:bold">;</span> <span style="color:#204a87;font-weight:bold">done</span>
+</code></pre></div><p>Then I wrote this python script to process the data and (eventually) get the games I was
+searching for:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">    <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">json</span>
+    <span style="color:#204a87;font-weight:bold">import</span> <span style="color:#000">requests</span>
+    
+    <span style="color:#8f5902;font-style:italic"># Merge JSON data in a single list</span>
+    <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">,</span><span style="color:#0000cf;font-weight:bold">13</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">fp</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87">open</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;games&#34;</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#204a87">str</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#4e9a06">&#34;.json&#34;</span><span style="color:#000;font-weight:bold">,</span><span style="color:#4e9a06">&#34;r&#34;</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">tmp</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">json</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">load</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">fp</span><span style="color:#000;font-weight:bold">)</span>
+        <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">tmp</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;products&#34;</span><span style="color:#000;font-weight:bold">]</span>
+        <span style="color:#000">fp</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">close</span><span style="color:#000;font-weight:bold">()</span>
+    
+    <span style="color:#8f5902;font-style:italic">#Filter - Price &lt;= 1.30 and Price &gt; 0 </span>
+    <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">data</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">float</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;price&#34;</span><span style="color:#000;font-weight:bold">][</span><span style="color:#4e9a06">&#34;finalAmount&#34;</span><span style="color:#000;font-weight:bold">])</span><span style="color:#ce5c00;font-weight:bold">&lt;=</span><span style="color:#0000cf;font-weight:bold">1.3</span> <span style="color:#204a87;font-weight:bold">and</span> \
+            <span style="color:#204a87">float</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;price&#34;</span><span style="color:#000;font-weight:bold">][</span><span style="color:#4e9a06">&#34;finalAmount&#34;</span><span style="color:#000;font-weight:bold">])</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span>
+    
+    <span style="color:#8f5902;font-style:italic">#Filter - Remove DLC&#39;s</span>
+    <span style="color:#000">gog_url</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;https://www.gog.com&#34;</span>
+    <span style="color:#000">DLC_flag_text</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#4e9a06">&#34;To play this game you also need&#34;</span>
+    <span style="color:#000">data</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">x</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">data</span> <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000">DLC_flag_text</span> <span style="color:#204a87;font-weight:bold">not</span> <span style="color:#204a87;font-weight:bold">in</span> \
+            <span style="color:#000">requests</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">get</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">gog_url</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;url&#34;</span><span style="color:#000;font-weight:bold">])</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">text</span><span style="color:#000;font-weight:bold">]</span>
+    
+    
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">data</span><span style="color:#000;font-weight:bold">)</span><span style="color:#ce5c00;font-weight:bold">&gt;</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">el</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">data</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">el</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;title&#34;</span><span style="color:#000;font-weight:bold">]</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#4e9a06">&#34;</span><span style="color:#4e9a06">\t</span><span style="color:#4e9a06">Price: &#34;</span><span style="color:#ce5c00;font-weight:bold">+</span><span style="color:#000">el</span><span style="color:#000;font-weight:bold">[</span><span style="color:#4e9a06">&#34;price&#34;</span><span style="color:#000;font-weight:bold">][</span><span style="color:#4e9a06">&#34;finalAmount&#34;</span><span style="color:#000;font-weight:bold">])</span>
+    <span style="color:#204a87;font-weight:bold">else</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">&#34;No games in the 0,01-1.30 price range!&#34;</span><span style="color:#000;font-weight:bold">)</span>
+</code></pre></div><p>Unfortunately the search wasn&rsquo;t successful and after 1 and half hour I&rsquo;m still with 1.3
+euro on my wallet and nothing to buy. I suppose I&rsquo;ll have to add some funds to make
+them valid indefinitely.</p>
+<p>PS: Yes, I know, checking manually the 530 results would have taken less time&hellip; but
+tinkering with API&rsquo;s and code is definitively more funny.</p>
 
             </div>
 
-            <section class="webring">
+            
+            <br>
+            <div class="navigation">
+                
+                <div style="width: 100%;"></div>
+                
+                <div>
+                    <a href="https://glumia.github.io/blog/c-and-assembly-subtleties/">C and Assembly - Subtleties</a>
+                    <img class="icon" src="https://glumia.github.io/img/next.svg" alt="next" />
+                </div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<section class="webring">
   <h3>Articles from blogs I follow around the net</h3>
   <section class="articles">
     
@@ -229,23 +250,6 @@ In the classic 1986 essay, No Silver Bullet, Fred Brooks argued that there is, i
   </p>
 </section>
 
-
-            
-            <br>
-            <div class="navigation">
-                
-                <div style="width: 100%;"></div>
-                
-                <div>
-                    <a href="https://glumia.github.io/blog/c-and-assembly-subtleties/">C and Assembly - Subtleties</a>
-                    <img class="icon" src="https://glumia.github.io/img/next.svg" alt="next" />
-                </div>
-                
-            </div>
-            
-        </div>
-    </div>
-</div>
 
 
 
