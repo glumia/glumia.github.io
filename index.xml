@@ -18,6 +18,17 @@ I like command line interfaces, unix-like operating systems, C, Python, lisps, v
     </item>
     
     <item>
+      <title>Reading list</title>
+      <link>https://glumia.github.io/reading_list/</link>
+      <pubDate>Tue, 23 Feb 2021 08:27:10 +0100</pubDate>
+      
+      <guid>https://glumia.github.io/reading_list/</guid>
+      <description>Read
+ The C Programming Language - D. Ritchie, B. Kernighan The Mythical Man-Month - F. Brooks Fluent Python - L. Ramalho The Pragmatic Programmer - D. Thomas, A. Hunt Clojure for the Brave and True - D. Higginbotham How to Solve It - G. Pólya A Philosophy of Software Design - J. Ousterhout Computer Networking, A Top-Down Approach - Kurose, Ross  Want to
+ Designing Data‑Intensive Applications - M.</description>
+    </item>
+    
+    <item>
       <title>Clojure, Python, C: three programming languages, one algorithm</title>
       <link>https://glumia.github.io/blog/clojure-python-c-three-programming-languages-one-algorithm/</link>
       <pubDate>Sun, 21 Jun 2020 00:00:00 +0000</pubDate>
