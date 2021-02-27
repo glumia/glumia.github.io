@@ -183,16 +183,20 @@ Behavior</a> for more info about this topic.</p>
     
     <div class="article">
       <h4 class="title">
-	<a href="https://drewdevault.com/2021/02/21/On-the-traits-of-good-replacements.html" target="_blank" rel="noopener">A great alternative is rarely fatter than what it aims to replace</a>
+	<a href="https://drewdevault.com/2021/02/25/Gmail-is-a-huge-source-of-spam.html" target="_blank" rel="noopener">Gmail is a huge source of spam</a>
       </h4>
-      <p class="summary">This is not always true, but in my experience, it tends to hold up. We often
-build or evaluate tools which aim to replace something kludgy^Wvenerable.
-Common examples include shells, programming languages, system utilities, and so
-on. Rust, Zig, etc, are tak…</p>
+      <p class="summary">5× as many spam registrations on sourcehut are from gmail than from the
+second-largest offender.
+# SELECT
+  SPLIT_PART(email, &#39;@&#39;, 2) as domain, count(*) as count
+  FROM &#34;user&#34;
+  WHERE user_type = &#39;suspended&#39;
+  GROUP BY domain
+  ORDER BY …</p>
       <small class="source">
 	via <a href="https://drewdevault.com">Drew DeVault&#39;s blog</a>
       </small>
-      <small class="date">February 21, 2021</small>
+      <small class="date">February 25, 2021</small>
     </div>
     
     <div class="article">
