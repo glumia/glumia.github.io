@@ -6,7 +6,7 @@
     <description>Recent content on glumia&#39;s blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-US</language>
-    <lastBuildDate>Sun, 21 Jun 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://glumia.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 03 Apr 2021 13:17:05 +0200</lastBuildDate><atom:link href="https://glumia.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About</title>
       <link>https://glumia.github.io/about/</link>
@@ -15,6 +15,16 @@
       <guid>https://glumia.github.io/about/</guid>
       <description>I am a backend developer at Oval and a (hopefully not for long) student in computer engineering at PoliTo.
 I like command line interfaces, unix-like operating systems, C, Python, lisps, vim, well written code/documentation and many other things.</description>
+    </item>
+    
+    <item>
+      <title>Codility - Part 1</title>
+      <link>https://glumia.github.io/blog/codility-part-1/</link>
+      <pubDate>Sat, 03 Apr 2021 13:17:05 +0200</pubDate>
+      
+      <guid>https://glumia.github.io/blog/codility-part-1/</guid>
+      <description>Lately I&#39;ve been looking for materials to practice for code interviews and a friend of mine pointed out Codility&#39;s lessons to me. Their web site and application are still a bit in the early stages (imho they are not as mature as other sites like HackerRank or CodinGame) but one really nice thing that the others lack is the reading material they provide for each topic.
+I plan to go through the lessons (at least 1 to 17) in the following days/weeks and I&#39;ll write random thoughts that arise while working on them here in the blog.</description>
     </item>
     
     <item>

@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="glumia&#39;s blog">
+
+
+    <meta property="twitter:site" content="@glumia8">
+
+<meta property="og:site_name" content="glumia&#39;s blog" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glumia.github.io/blog/codility-part-1/" />
+<meta property="og:title" content="Codility - Part 1" />
+<meta property="twitter:title" content="Codility - Part 1">
+
+    <meta property="twitter:card" content="summary">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     glumia&#39;s blog - Codility - Part 1 
+
+</title>
+<link rel="canonical" href="https://glumia.github.io/blog/codility-part-1/">
+
+
+
+<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.101ae5e128b078eed9b45dc5f7444b648439275d2762de69b3a51bf823a3ef12.css">
+
+
+<link rel="stylesheet" media="(min-width: 600px)" href="https://glumia.github.io/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css">
+
+
+<link rel="stylesheet" media="(min-width: 769px)" href="https://glumia.github.io/min769px.min.120cb35d201663ad94a3cdf59377253c32841093bc26a904c150f2037a2e074a.css">
+
+
+<link rel="shortcut icon"
+
+    href="https://glumia.github.io/favicon-32x32.png"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="header column">
+
+    <div class="container">
+        <a href="https://glumia.github.io/"><img class="logo" src="https://glumia.github.io/logo_glumia_512.jpg" alt="logo"></a>
+        <div class="content">
+            <a href="https://glumia.github.io/"><div class="name"><h1>glumia&#39;s blog</h1></div></a>
+            <nav>
+                <ul>
+                    
+                            <li><a href="https://glumia.github.io/blog/">Blog</a></li>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <li><a href="https://glumia.github.io/about/">About</a></li>
+                        
+                    
+                        
+                            <li><a href="https://glumia.github.io/reading_list/">Reading list</a></li>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+    Codility - Part 1
+    
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Sat Apr 3 2021 13:17:05 CEST">Apr 3, 2021</div>
+                    
+                        
+                    
+                    
+                    <div class="reading-time middot">4 minute read</div>
+                    
+                      <div class="tags">
+                        <ul>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>Lately I've been looking for materials to practice for code interviews and a
+friend of mine pointed out <a href="https://app.codility.com/programmers/lessons/1-iterations/">Codility's lessons</a> to me.
+Their web site and application are still a bit in the early stages (imho they
+are not as mature as other sites like HackerRank or CodinGame) but one
+really nice thing that the others lack is the reading material they provide
+for each topic.</p>
+
+<p>I plan to go through the lessons (at least 1 to 17) in the following
+days/weeks and I'll write random thoughts that arise while working on them
+here in the blog.</p>
+
+<p>I want to do it mainly to keep myself engaged and force myself to
+'distil' a bit of what I learn in the process. Also, I want to try to be less
+perfectionist with my blog writing and see what happens: if I write so
+seldom it's mainly because I know how long it requires me and I end not
+writing at all.</p>
+
+<h1 id="codility-lessons">Codility lessons</h1>
+
+<h1 id="1-iterations">1. Iterations</h1>
+
+<p>Easy peasy, beginner programming stuff.</p>
+
+<h1 id="2-arrays">2. Arrays</h1>
+
+<p>Easy peasy, beginner programming stuff.</p>
+
+<h1 id="3-time-complexity">3. Time Complexity</h1>
+
+<p>Easy tasks. The <a href="https://codility.com/media/train/1-TimeComplexity.pdf">reading</a>
+is interesting, particularly the part regarding estimates about the upper limit
+of the time complexity a solution should have.</p>
+
+<h2 id="key-takeaway">Key takeaway</h2>
+
+<ul>
+<li>An average computer can perform something like <span  class="math">\(10^8\)</span> operations/s.</li>
+<li>The time limit for test cases is usually 1 to 10 seconds.</li>
+</ul>
+
+<p>With both this information and those of the test (usually you are given the
+size of input data) you should be able to estimate the upper limit of time
+complexity that your solution should have.</p>
+
+<h1 id="4-counting-elements">4. Counting Elements</h1>
+
+<p>Ok, here I feel a bit like cheating by using Python's <code>Counter</code> from
+the standard library's <code>collection</code> module.</p>
+
+<h2 id="exercise-41-of-the-reading-material">Exercise 4.1 of the reading material</h2>
+
+<p>Sometimes math allows you to literally kill algorithms' time complexity.</p>
+
+<p>Let <span  class="math">\(S_{A} = \sum_{i=0}^{n-1} a_i\)</span> and <span  class="math">\(S_{B} = \sum_{i=0}^{n-1} b_i\)</span>.</p>
+
+<p>Denote as <span  class="math">\(a_i\)</span> and <span  class="math">\(b_j\)</span> the elements of A and B we need (eventually) to swap.</p>
+
+<p>If such elements exist that solve the problem, then it is true that:
+<span  class="math">\(S_A - a_i + b_j = S_B + a_i - b_j \\
+\Rightarrow 2 a_i - 2 b_j = S_A - S_B \\
+\Rightarrow a_i = b_j + (S_A - S_B) / 2 \)</span></p>
+
+<p>This means that our problem admits a solution if and only if <span  class="math">\(S_A - S_B\)</span> is
+divisible by 2 and if the above equality holds for some i and j.</p>
+
+<p>This can be verified with an algorithm of complexity <span  class="math">\(O(n+m)\)</span>.</p>
+
+<p>Solution in Python:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">A</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">B</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">m</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">Sa</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">sum</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">A</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#000">Sb</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">sum</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">B</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Sa</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">Sb</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">%</span> <span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span>
+    <span style="color:#000">values_A</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">set</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">A</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">v</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">B</span><span style="color:#000;font-weight:bold">:</span>
+        <span style="color:#204a87;font-weight:bold">if</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">Sa</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">Sb</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">//</span> <span style="color:#0000cf;font-weight:bold">2</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">v</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000">values_A</span><span style="color:#000;font-weight:bold">:</span>
+            <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">True</span>
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#3465a4">False</span></code></pre></div>
+<h1 id="5-prefix-sums">5. Prefix Sums</h1>
+
+<p>This is a totally new concept/technique to me. It looks really powerful to
+avoid complexity <span  class="math">\(O(n^2)\)</span> or <span  class="math">\(O(n \cdot m)\)</span> and get <span  class="math">\(O(n)\)</span> or <span  class="math">\(O(n+m)\)</span>
+instead.</p>
+
+<p>The idea is simple but I still need to acquire the skill to recognize problems
+where this technique can be used.</p>
+
+<h2 id="question-minavgtwoslice">Question MinAvgTwoSlice</h2>
+
+<p>This one was hard. I wasn't able to solve it by myself with a complexity
+less than <span  class="math">\(O(n^2)\)</span> without reading <em>&quot;There must be some slices, with length of
+two or three, having the minimal average value among all the slices&quot;</em> in
+<a href="https://codesays.com/2014/solution-to-min-avg-two-slice-by-codility/">this</a>
+blog post. Pretty obvious in retrospect, but I was nowhere near to getting
+there by myself.</p>
+
+<p>Solution in Python:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#204a87;font-weight:bold">def</span> <span style="color:#000">solution</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">A</span><span style="color:#000;font-weight:bold">):</span>
+    <span style="color:#000">N</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#204a87">len</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">A</span><span style="color:#000;font-weight:bold">)</span>
+
+    <span style="color:#000">partial_sums</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">*</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">N</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">)</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">i</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">N</span><span style="color:#000;font-weight:bold">):</span>
+        <span style="color:#000">partial_sums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">partial_sums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">A</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">i</span><span style="color:#000;font-weight:bold">]</span>
+
+    <span style="color:#000">averages</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000;font-weight:bold">[]</span>
+    <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">l</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#0000cf;font-weight:bold">3</span><span style="color:#000;font-weight:bold">]:</span>
+        <span style="color:#204a87;font-weight:bold">for</span> <span style="color:#000">p</span> <span style="color:#204a87;font-weight:bold">in</span> <span style="color:#204a87">range</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">N</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">l</span><span style="color:#000;font-weight:bold">):</span>
+            <span style="color:#000">q</span> <span style="color:#ce5c00;font-weight:bold">=</span> <span style="color:#000">p</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#000">l</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#0000cf;font-weight:bold">1</span>
+            <span style="color:#000">averages</span><span style="color:#ce5c00;font-weight:bold">.</span><span style="color:#000">append</span><span style="color:#000;font-weight:bold">([</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">q</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">partial_sums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">q</span> <span style="color:#ce5c00;font-weight:bold">+</span> <span style="color:#0000cf;font-weight:bold">1</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#ce5c00;font-weight:bold">-</span> <span style="color:#000">partial_sums</span><span style="color:#000;font-weight:bold">[</span><span style="color:#000">p</span><span style="color:#000;font-weight:bold">])</span> <span style="color:#ce5c00;font-weight:bold">/</span> <span style="color:#000">l</span><span style="color:#000;font-weight:bold">])</span>
+
+    <span style="color:#204a87;font-weight:bold">return</span> <span style="color:#204a87">min</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">averages</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">key</span><span style="color:#ce5c00;font-weight:bold">=</span><span style="color:#204a87;font-weight:bold">lambda</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">x</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">])[</span><span style="color:#0000cf;font-weight:bold">0</span><span style="color:#000;font-weight:bold">]</span></code></pre></div>
+<hr>
+
+<p>That's all for the first part of this series, I'll add other posts as I go
+forward with the lessons.</p>
+
+            </div>
+
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="https://glumia.github.io/img/back.svg" alt="back" />
+                    <a href="https://glumia.github.io/blog/clojure-python-c-three-programming-languages-one-algorithm/">Clojure, Python, C: three programming languages, one algorithm</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<section class="webring">
+  <h3>Articles from blogs I follow around the net</h3>
+  <section class="articles">
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="https://drewdevault.com/2021/04/02/Go-is-a-great-language.html" target="_blank" rel="noopener">Go is a great programming language</a>
+      </h4>
+      <p class="summary">No software is perfect, and thus even for software I find very pleasant, I can
+usually identify some problems in it — often using my blog to do so. Even
+my all-time favorite software project, Plan 9, has some painful flaws! For some
+projects, it may be my fo…</p>
+      <small class="source">
+	via <a href="https://drewdevault.com">Drew DeVault&#39;s blog</a>
+      </small>
+      <small class="date">April 2, 2021</small>
+    </div>
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="https://nullprogram.com/blog/2021/03/11/" target="_blank" rel="noopener">A guide to Windows application development using w64devkit</a>
+      </h4>
+      <p class="summary">
+      There’s a trend of building services where a monolithic application is
+better suited, or using JavaScript and Python then being stumped by their
+troublesome deployment story. This leads to solutions like bundling an
+entire web browser with an applicati…</p>
+      <small class="source">
+	via <a href="https://nullprogram.com">null program</a>
+      </small>
+      <small class="date">March 11, 2021</small>
+    </div>
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="https://danluu.com/essential-complexity/" target="_blank" rel="noopener">Against essential and accidental complexity</a>
+      </h4>
+      <p class="summary">
+
+In the classic 1986 essay, No Silver Bullet, Fred Brooks argued that there is, in some sense, not that much that can be done to improve programmer productivity. His line of reasoning is that programming tasks contain a core of essential/conceptual1 comple…</p>
+      <small class="source">
+	via <a href="https://danluu.com/atom/index.xml">Dan Luu</a>
+      </small>
+      <small class="date">December 29, 2020</small>
+    </div>
+    
+  </section>
+  <p class="attribution">
+    Generated by
+    <a href="https://git.sr.ht/~sircmpwn/openring">openring</a>
+  </p>
+</section>
+
+
+
+
+<div class="footer column">
+    <div class="container">
+
+        
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 © 2021 Giuseppe Lumia</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+            <a href="https://github.com/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+            <a href="https://twitter.com/glumia8" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/twitter.svg" alt="twitter" />
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+            <a href="https://keybase.io/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/keybase.svg" alt="keybase" />
+            </a>
+        
+
+
+        
+            <a href="mailto:g.lumia@outlook.com">
+                <img class="icon" src="https://glumia.github.io/img/email.svg" alt="email" />
+            </a>
+        
+
+        
+            <a href="https://glumia.github.io/index.xml">
+                <img class="icon" src="https://glumia.github.io/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        
+            <script type="text/javascript"
+              src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+            </script>
+        
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
