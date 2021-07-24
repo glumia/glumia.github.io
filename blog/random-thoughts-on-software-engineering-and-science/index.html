@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+<meta charset="utf-8">
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="glumia&#39;s blog">
+
+
+    <meta property="twitter:site" content="@glumia8">
+
+<meta property="og:site_name" content="glumia&#39;s blog" />
+<meta property="og:locale" content="en-US" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://glumia.github.io/blog/random-thoughts-on-software-engineering-and-science/" />
+<meta property="og:title" content="Random thoughts on Software Engineering and Science" />
+<meta property="twitter:title" content="Random thoughts on Software Engineering and Science">
+
+    <meta property="twitter:card" content="summary">
+
+<meta property="og:description" content="">
+<meta property="twitter:description" content="">
+
+<title>
+
+
+     glumia&#39;s blog - Random thoughts on Software Engineering and Science 
+
+</title>
+<link rel="canonical" href="https://glumia.github.io/blog/random-thoughts-on-software-engineering-and-science/">
+
+
+
+<link rel="stylesheet" media="screen" href="https://glumia.github.io/main.min.9cfeb83c38b796feb8a67a2a3298e4a0f08971411fd3890b8c61d8723c310fc3.css">
+
+
+<link rel="stylesheet" media="(min-width: 600px)" href="https://glumia.github.io/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css">
+
+
+<link rel="stylesheet" media="(min-width: 769px)" href="https://glumia.github.io/min769px.min.120cb35d201663ad94a3cdf59377253c32841093bc26a904c150f2037a2e074a.css">
+
+
+<link rel="shortcut icon"
+
+    href="https://glumia.github.io/favicon-32x32.png"
+
+>
+
+
+
+
+</head>
+
+
+<body>
+
+
+<div class="header column">
+
+    <div class="container">
+        <a href="https://glumia.github.io/"><img class="logo" src="https://glumia.github.io/logo_glumia_512.jpg" alt="logo"></a>
+        <div class="content">
+            <a href="https://glumia.github.io/"><div class="name"><h1>glumia&#39;s blog</h1></div></a>
+            <nav>
+                <ul>
+                    
+                            <li><a href="https://glumia.github.io/blog/">Blog</a></li>
+                    
+                    
+                        
+                            
+                        
+                    
+                    
+                        
+                            <li><a href="https://glumia.github.io/about/">About</a></li>
+                        
+                    
+                        
+                            <li><a href="https://glumia.github.io/reading_list/">Reading list</a></li>
+                        
+                    
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="main post non-narrow zero-top-spacing column">
+    <div class="container">
+        <div class="content">
+            <div class="front-matter">
+                <div class="title-container">
+                    <div class="page-heading">
+
+    
+    Random thoughts on Software Engineering and Science
+    
+
+</div>
+
+                </div>
+                <div class="meta">
+                    <div class="date" title="Fri Jul 23 2021 19:06:35 CEST">Jul 23, 2021</div>
+                    
+                        
+                    
+                    
+                    <div class="reading-time middot">4 minute read</div>
+                    
+                      <div class="tags">
+                        <ul>
+                          
+                            <li class="middot"><a href="https://glumia.github.io/tags/software-engineering">Software Engineering</a> </li>
+                          
+                            <li class="middot"><a href="https://glumia.github.io/tags/science">Science</a> </li>
+                          
+                            <li class="middot"><a href="https://glumia.github.io/tags/philosophy">Philosophy</a> </li>
+                          
+                            <li class="middot"><a href="https://glumia.github.io/tags/reading">Reading</a> </li>
+                          
+                        </ul>
+                    </div>
+                    <div class="tags">
+                        <ul>
+                          
+                          
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="markdown">
+                <p>The other day I was randomly reading some stuff on lobste.rs when I found this post <a href="https://lobste.rs/s/9n7aic/what_i_learned_from_software_engineering"><em>&ldquo;What I learned from Software Engineering at Google&rdquo;</em></a>. As I usually do, I skimmed through the comments and decided to stop there - more often than not it&rsquo;s enough information to decide if a full read is worth it or noth (yeah, I know, that&rsquo;s not an infallible heuristic, but hey, our time on this world is limited and even if I would like to I can&rsquo;t read and keep up with everything that&rsquo;s on the web).</p>
+<p>@peterbourgon makes a good point in the comments saying that some things could not make sense out of context and that one should take carefully such advises on software development. I can&rsquo;t agree more, I have seen many atrocities committed by people who read <code>Clean Code</code> or the like and blindly applied what they&rsquo;ve seen to their code base.</p>
+<p>Heck, that&rsquo;s what I did even myself, take a look at <a href="https://github.com/glumia/polito">https://github.com/glumia/polito</a>_dl, where I transformed a simple script into and hyper-fragmented, over-engineered, unreadable code base. <a href="https://github.com/glumia/polito_dl/tree/6aafd7f1d7b98a25caeba3a86006d619360af415">Before</a> &ndash;&gt; <a href="https://github.com/glumia/polito_dl">After</a>. <em>Code should be composed by small functions that do only one simple thing and are easy to test</em>. That&rsquo;s what I was repeating myself while committing that crime. That&rsquo;s what happens when you sell such advice as an absolute truth to an inexperienced developer. If you see any novice doing the same mistake give him a copy of &ldquo;A Philosophy of Software Design&rdquo; by John Ousterhout and force him to read it before going back to code (you don&rsquo;t know it? take a look, some things are opinable but it&rsquo;s an awesome book).</p>
+<p>Anway, back to the post on lobste.rs, one comment by @hwayne got my attention:</p>
+<blockquote>
+<p>Welp I’m officially nerd sniped, gonna try to do a very broad writeup tomorrow. tl;dr most of the research is pretty rotten and I don’t think there’s strong evidence either way.</p>
+</blockquote>
+<p>This resonates with a sentiment I&rsquo;ve been developing lately regarding software, and more in general &lsquo;science&rsquo;.</p>
+<p>I&rsquo;ve spent my adolescence reading stuff about sport nutition and training (I was and still am in some way a weightlifting enthusiast) and it took me something like 5 years to finally realize that the things that matter are few and simple and that the rest is snake oil or subtetlies that make sense only for professional athletes.</p>
+<p><em>few and simple</em>: foundational concepts about nutrition like total calories intake, macro nutrients balance, intensity and volume on trainings, etc.<br>
+<em>rest</em>: crazy diets, 95% of food supplements, hyper-complicated training techniques, etc.</p>
+<p>A pivotal point in making me become as skeptical as I am today was studying statistics at university. When you see with your eyes how easy it is to lie with numbers you understand that you can&rsquo;t blindly trust anything, academic papers included. By the way, I also have to thank <em>ironpaolo</em> (a weightlifting blogger I read at the time) for teaching me to always hunt for primary sources of information and never stop to blog posts/articles.</p>
+<p>I think those are concepts that really carry on to whatever field you&rsquo;re interested in, whether it is sport nutrition, training, software development or any other one where people make claims backed by &lsquo;science&rsquo; and numbers.</p>
+<p>Anyway, back again to lobste.rs, the thing stopped there and I forgot about it, until I saw another one some days later, <a href="https://lobste.rs/s/v4unx3/i_ing_hate_science">&ldquo;I ****ing hate Science&rdquo;</a>. It&rsquo;s the writeup @hwayne promised!</p>
+<p>This post (this time I read it) and the comments are gold content. Really, take some tome to read them, it&rsquo;s worth it.</p>
+<p>It made me think to some random ideas I&rsquo;ve been developing but have not yet fully crystallized:</p>
+<ul>
+<li>
+<p>Foundational knowledge matters and outweights everything else. Read about algorithms, data structures, computer networks, architectures and not about language X or framework Y, or if you do, take your time to go really deep and see how they are implemented and the design decision they are backed by.</p>
+</li>
+<li>
+<p>The web is an invaluable source of information. Unfortunately, quality content is buried under piles and piles of marketing bullshittery. Searching for that content is painful and it becomes worse and worse as time goes by.</p>
+</li>
+<li>
+<p>Too many developers blindly apply &lsquo;industry best practices&rsquo; to their projects ending with unreadable over-engineered monstrosity. It&rsquo;s bad when people do cowboy coding, it&rsquo;s even worse when they blindly follow principles they just read on the web or on a book. <em>Complexity is such a beast to deal with…</em></p>
+</li>
+</ul>
+<p>Maybe you&rsquo;ll see me write about the in the future.</p>
+<p>And you? What do you think? If you have anything to say reach out to me through
+my email or on twitter, I love to talk about that kind of stuff!</p>
+<hr>
+<p>By the way, if you want to dig into it, here&rsquo;s the full rabbit hole that inspired this blog post:</p>
+<ul>
+<li><a href="https://lobste.rs/s/9n7aic/what_i_learned_from_software_engineering">What I learned from Software Engineering at Google (lobste.rs)</a></li>
+<li><a href="https://lobste.rs/s/v4unx3/i_ing_hate_science">I ****ing hate Science (lobste.rs)</a></li>
+<li><a href="https://buttondown.email/hillelwayne/archive/i-ing-hate-science/">I ****ing hate Science</a></li>
+<li><a href="https://www.theregister.com/AMP/2021/07/22/bugs_expense_bs">The Register article inspired by Hillel&rsquo;s post</a></li>
+<li><a href="https://gist.github.com/Morendil/258a523726f187334168f11fc8331569">Degrees of dishonesty</a></li>
+</ul>
+
+            </div>
+
+            
+            <br>
+            <div class="navigation">
+                
+                <div>
+                    <img class="icon" src="https://glumia.github.io/img/back.svg" alt="back" />
+                    <a href="https://glumia.github.io/blog/codility-part-1/">Codility - Part 1</a>
+                </div>
+                
+                <div style="width: 100%;"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>
+
+<section class="webring">
+  <h3>Articles from blogs I follow around the net</h3>
+  <section class="articles">
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="https://drewdevault.com/2021/07/15/Status-update-July-2021.html" target="_blank" rel="noopener">Status update, July 2021</a>
+      </h4>
+      <p class="summary">Hallo uit Nederland! I’m writing to you from a temporary workstation in
+Amsterdam, pending the installation of a better one that I’ll put together after
+I visit a furniture store today. I’ve had to slow a few things down somewhat
+while I prepare for this mov…</p>
+      <small class="source">
+	via <a href="https://drewdevault.com">Drew DeVault&#39;s blog</a>
+      </small>
+      <small class="date">July 15, 2021</small>
+    </div>
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="https://jvns.ca/blog/2021/07/08/writing-great-examples/" target="_blank" rel="noopener">Write good examples by starting with real code</a>
+      </h4>
+      <p class="summary">When I write about programming, I spend a lot of time trying to come up with
+good examples. I haven’t seen a lot written about how to make examples, so
+here’s a little bit about my approach to writing examples!
+
+The basic idea here is to start with real code …</p>
+      <small class="source">
+	via <a href="http://jvns.ca">Julia Evans</a>
+      </small>
+      <small class="date">July 8, 2021</small>
+    </div>
+    
+    <div class="article">
+      <h4 class="title">
+	<a href="http://www.brendangregg.com/blog/2021-07-05/computing-performance-on-the-horizon.html" target="_blank" rel="noopener">USENIX LISA2021 Computing Performance: On the Horizon</a>
+      </h4>
+      <p class="summary">It&#39;s an exciting time for developments in computer performance, not just for the BPF technology (which I often write about) but also for processors with 3D stacking and cloud vendor CPUs (e.g., AWS Graviton2); for memory with the arrival of DDR5 and H…</p>
+      <small class="source">
+	via <a href="http://www.brendangregg.com/blog">Brendan Gregg&#39;s Blog</a>
+      </small>
+      <small class="date">July 5, 2021</small>
+    </div>
+    
+  </section>
+  <p class="attribution">
+    Generated by
+    <a href="https://git.sr.ht/~sircmpwn/openring">openring</a>
+  </p>
+</section>
+
+
+
+
+<div class="footer column">
+    <div class="container">
+
+        
+
+        
+
+        <div class="copyright">
+
+        
+            
+                <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 © 2021 Giuseppe Lumia</a>
+            
+        
+
+        </div>
+        <div class="icons">
+
+        
+
+        
+            <a href="https://github.com/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/github.svg" alt="github" />
+            </a>
+        
+
+        
+            <a href="https://twitter.com/glumia8" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/twitter.svg" alt="twitter" />
+            </a>
+        
+
+        
+            <a href="https://www.linkedin.com/in/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/linkedin.svg" alt="linkedin" />
+            </a>
+        
+
+        
+            <a href="https://keybase.io/glumia" rel=me target="_blank">
+                <img class="icon" src="https://glumia.github.io/img/keybase.svg" alt="keybase" />
+            </a>
+        
+
+
+        
+            <a href="mailto:g.lumia@outlook.com">
+                <img class="icon" src="https://glumia.github.io/img/email.svg" alt="email" />
+            </a>
+        
+
+        
+            <a href="https://glumia.github.io/index.xml">
+                <img class="icon" src="https://glumia.github.io/img/rss.svg" alt="rss" />
+            </a>
+        
+
+        
+
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
