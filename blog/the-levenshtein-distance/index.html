@@ -65,14 +65,14 @@ The Levenshtein Distance
 </div>
 </div>
 <div class=markdown>
-<p>It&rsquo;s fascinating how everything you can think of in computer science 9 times out of 10
-was already thought and probably studied by someone else. Today I was thinking about a
+<p>It&rsquo;s fascinating how every problem you can think of in computer science 9 times out of
+10 was already tackled and solved by someone else. Today I was thinking about a
 way to suggest corrections for addresses inserted by our customers when I started to
 imagine an algorithm that used the mathematical notion of &lsquo;distance&rsquo; (check &lsquo;Metric
 (mathematics)&rsquo; on Wikipedia <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> ) to give them some suggestions based on a set of valid
 addresses present on our DB. Well, now I find out that it&rsquo;s a well-known problem in
 computer science, that a wide range of algorithms<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> has already been designed to solve
-it and that what I was starting to think on was a variation of the Levenshtein distance!</p>
+it and that what I had in my mind was a variation of the Levenshtein distance!</p>
 <h4 id=a-code-snippet-in-python-that-implements-those-ideas>A code snippet in Python that implements those ideas</h4>
 <div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#204a87;font-weight:700>from</span> <span style=color:#000>itertools</span> <span style=color:#204a87;font-weight:700>import</span> <span style=color:#000>zip_longest</span>
 
@@ -88,9 +88,8 @@ it and that what I was starting to think on was a variation of the Levenshtein d
 </span><span style=color:#4e9a06>    :param s: the string to get suggestions for.
 </span><span style=color:#4e9a06>    :param dictionary: a set/list of strings.
 </span><span style=color:#4e9a06>    :param distance: the function to use to compute the strings distance.
-</span><span style=color:#4e9a06>    :param int tol: max distance allowed between the input string and the 
+</span><span style=color:#4e9a06>    :param int tol: max distance allowed between the input string and the
 </span><span style=color:#4e9a06>    suggestions.
-</span><span style=color:#4e9a06>
 </span><span style=color:#4e9a06>    &#34;&#34;&#34;</span>
     <span style=color:#204a87;font-weight:700>return</span> <span style=color:#000;font-weight:700>{</span><span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>dictionary</span> <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000>distance</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>s</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>word</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>&lt;=</span> <span style=color:#000>tol</span><span style=color:#000;font-weight:700>}</span>
 </code></pre></div><section class=footnotes role=doc-endnotes>
