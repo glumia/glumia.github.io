@@ -1,3 +1,4 @@
 User-agent: *
+Allow: /
 
-https://glumia.dev/sitemap.xml
+Sitemap: https://glumia.dev/sitemap.xml
