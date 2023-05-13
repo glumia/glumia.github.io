@@ -6,7 +6,7 @@
 
 #include <stdio.h>
 
-int main(int argc, char *argv[]) {
+int main() {
   unsigned int i, j, is_prime, n;
   unsigned int NUM_PRIMES = 10000;
   unsigned int primes[NUM_PRIMES];
@@ -29,14 +29,9 @@ int main(int argc, char *argv[]) {
         primes[i] = n;
         break;
       }
-      n+=2;
+      n += 2;
     }
   }
 
-  // Uncomment the following lines if you want to print the computed primes.
-  /* printf("Prime numbers: %d", primes[0]); */
-  /* for(i=1;i<NUM_PRIMES;i++){ */
-  /*   printf(", %d",primes[i]); */
-  /* } */
-  /* printf("\n"); */
+  printf("%d\n", primes[i - 1]);
 }

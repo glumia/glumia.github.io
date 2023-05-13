@@ -71,7 +71,7 @@ Clojure, Python, C: three programming languages, one algorithm
 <p>Just a bit disappointed by how bad Clojure&rsquo;s performance are (<em>but hey,
 immutability is not free!</em>) and by how damn difficult it is to improve them.</p>
 <h4 id=update-230620>Update 23/06/20</h4>
-<p>I found out that the timing of the C version goes down to ~2ms if I just
+<p>I found out that the timing of the C version goes down to ~~2ms~ ~145ms if I just
 declare the variables as <em>int</em> and not <em>unsigned int</em>. That&rsquo;s amazing!</p>
 <h4 id=update-090121>Update 09/01/21</h4>
 <p>Half I year later I finally know why the version with signed integers actually
@@ -82,6 +82,12 @@ to handle overflows (because it&rsquo;s declared undefined behaviour in the stan
 while it has to do it for unsigned integers (that are defined to wrap).</p>
 <p>Check <a href=https://nullprogram.com/blog/2018/07/20/>The Value of Undefined
 Behavior</a> for more info about this topic.</p>
+<h4 id=update-150523>Update 15/05/23</h4>
+<p>Three years later I discover that the version with signed ints was taking 2ms because
+I was compiling it with <code>-O2</code> and the <code>printf</code> statements commented, so the compiler was
+essentially optimizing out the entire program (lol).</p>
+<p>See <a href="https://www.youtube.com/watch?v=w3_e9vZj7D8">Advanced C by Eskil Steenberg</a> for
+more on this and UB.</p>
 <p>Source:
 <a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/naive_compute_primes.clj>Clojure</a>,
 <a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/naive_compute_primes.py>Python</a>,
