@@ -1,195 +1,64 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta property="twitter:site" content="@glumia8">
-<meta property="og:site_name" content="glumia's blog">
-<meta property="og:locale" content="en-US">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://glumia.dev/blog/codility-part-1-and-probably-last-until-ill-get-back-to-job-hunting/">
-<meta property="og:title" content="Codility - Part 1 (and probably last, until I'll get back to job hunting)">
-<meta property="twitter:title" content="Codility - Part 1 (and probably last, until I'll get back to job hunting)">
-<meta property="twitter:card" content="summary">
-<meta property="og:description" content>
-<meta property="twitter:description" content>
-<title>
-glumia's blog - Codility - Part 1 (and probably last, until I'll get back to job hunting)
-</title>
-<link rel=canonical href=https://glumia.dev/blog/codility-part-1-and-probably-last-until-ill-get-back-to-job-hunting/>
-<link rel=stylesheet media=screen href=https://glumia.dev/main.min.344b18e53f6dc95dfb28120d4a8b13b71ea4ec54afb2363c6b19a36e9c112730.css>
-<link rel=stylesheet media="(min-width: 600px)" href=https://glumia.dev/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css>
-<link rel="shortcut icon" href=https://glumia.dev/favicon-32x32.png>
-</head>
-<body>
-<div class="header column">
-<div class=container>
-<a href=https://glumia.dev/><img class=logo src=https://glumia.dev/logo_glumia_512.jpg alt=logo></a>
-<div class=content>
-<a href=https://glumia.dev/><div class=name><h1>glumia's blog</h1></div></a>
-<nav>
-<ul>
-<li><a href=https://glumia.dev/blog/>Posts</a></li>
-<li><a href=https://glumia.dev/about/>About</a></li>
-<li><a href=https://glumia.dev/reading_list/>Reading list</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="main post non-narrow zero-top-spacing column">
-<div class=container>
-<div class=content>
-<div class=front-matter>
-<div class=title-container>
-<div class=page-heading>
-Codility - Part 1 (and probably last, until I'll get back to job hunting)
-</div>
-</div>
-<div class=meta>
-<div class=date title="Sat Apr 3 2021 13:17:05 +0200">Apr 3, 2021</div>
-<div class="reading-time middot">3 minute read</div>
-<div class=tags>
-<ul>
-</ul>
-</div>
-<div class=tags>
-<ul>
-</ul>
-</div>
-</div>
-</div>
-<div class=markdown>
-<p>Lately I&rsquo;ve been looking for materials to practice for code interviews and a
+<!doctype html><html lang=en-US><head><meta charset=utf-8><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="twitter:site" content="@glumia8"><meta property="og:site_name" content="glumia's blog"><meta property="og:locale" content="en-US"><meta property="og:type" content="article"><meta property="og:url" content="https://glumia.dev/blog/codility-part-1-and-probably-last-until-ill-get-back-to-job-hunting/"><meta property="og:title" content="Codility - Part 1 (and probably last, until I'll get back to job hunting)"><meta property="twitter:title" content="Codility - Part 1 (and probably last, until I'll get back to job hunting)"><meta property="twitter:card" content="summary"><meta property="og:description" content><meta property="twitter:description" content><title>glumia's blog - Codility - Part 1 (and probably last, until I'll get back to job hunting)
+</title><link rel=canonical href=https://glumia.dev/blog/codility-part-1-and-probably-last-until-ill-get-back-to-job-hunting/><link rel=stylesheet media=screen href=https://glumia.dev/main.min.344b18e53f6dc95dfb28120d4a8b13b71ea4ec54afb2363c6b19a36e9c112730.css><link rel=stylesheet media="(min-width: 600px)" href=https://glumia.dev/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css><link rel="shortcut icon" href=https://glumia.dev/favicon-32x32.png></head><body><div class="header column"><div class=container><a href=https://glumia.dev/><img class=logo src=https://glumia.dev/logo_glumia_512.jpg alt=logo></a><div class=content><a href=https://glumia.dev/><div class=name><h1>glumia's blog</h1></div></a><nav><ul><li><a href=https://glumia.dev/blog/>Posts</a></li><li><a href=https://glumia.dev/about/>About</a></li><li><a href=https://glumia.dev/reading_list/>Reading list</a></li></ul></nav></div></div></div><div class="main post non-narrow zero-top-spacing column"><div class=container><div class=content><div class=front-matter><div class=title-container><div class=page-heading>Codility - Part 1 (and probably last, until I'll get back to job hunting)</div></div><div class=meta><div class=date title="Sat Apr 3 2021 13:17:05 +0200">Apr 3, 2021</div><div class="reading-time middot">3 minute read</div><div class=tags><ul></ul></div><div class=tags><ul></ul></div></div></div><div class=markdown><p>Lately I&rsquo;ve been looking for materials to practice for code interviews and a
 friend of mine pointed out <a href=https://app.codility.com/programmers/lessons/1-iterations/>Codility&rsquo;s lessons</a> to me.
 Their web site and application are still a bit in the early stages (imho they
 are not as mature as other sites like HackerRank or CodinGame) but one
 really nice thing that the others lack is the reading material they provide
-for each topic.</p>
-<p>I plan to go through the lessons (at least 1 to 17) in the following
+for each topic.</p><p>I plan to go through the lessons (at least 1 to 17) in the following
 days/weeks and I&rsquo;ll write random thoughts that arise while working on them
-here in the blog.</p>
-<p>I want to do it mainly to keep myself engaged and force myself to
+here in the blog.</p><p>I want to do it mainly to keep myself engaged and force myself to
 &lsquo;distil&rsquo; a bit of what I learn in the process. Also, I want to try to be less
 perfectionist with my blog writing and see what happens: if I write so
 seldom it&rsquo;s mainly because I know how long it requires and I end not
-writing at all.</p>
-<h1 id=codility-lessons>Codility lessons</h1>
-<h1 id=3-time-complexity>3. Time Complexity</h1>
-<p>The <a href=https://codility.com/media/train/1-TimeComplexity.pdf>reading</a>
+writing at all.</p><h1 id=codility-lessons>Codility lessons</h1><h1 id=3-time-complexity>3. Time Complexity</h1><p>The <a href=https://codility.com/media/train/1-TimeComplexity.pdf>reading</a>
 is interesting, particularly the part regarding estimates about the upper limit
-of the time complexity a solution should have.</p>
-<h2 id=key-takeaway>Key takeaway</h2>
-<ul>
-<li>An average computer can perform something like $10^8$ operations/s.</li>
-<li>The time limit for test cases is usually 1 to 10 seconds.</li>
-</ul>
-<p>With both this information and those of the test (usually you are given the
+of the time complexity a solution should have.</p><h2 id=key-takeaway>Key takeaway</h2><ul><li>An average computer can perform something like $10^8$ operations/s.</li><li>The time limit for test cases is usually 1 to 10 seconds.</li></ul><p>With both this information and those of the test (usually you are given the
 size of input data) you should be able to estimate the upper limit of time
-complexity that your solution should have.</p>
-<h1 id=4-counting-elements>4. Counting Elements</h1>
-<p>Ok, here I feel a bit like cheating by using Python&rsquo;s <code>Counter</code> from
-the standard library&rsquo;s <code>collection</code> module.</p>
-<h2 id=exercise-41-of-the-reading-material>Exercise 4.1 of the reading material</h2>
-<p>Sometimes math allows you to literally kill algorithms' time complexity.</p>
-<p>Let $S_{A} = \sum_{i=0}^{n-1} a_i$ and $S_{B} = \sum_{i=0}^{n-1} b_i$.</p>
-<p>Denote as $a_i$ and $b_j$ the elements of A and B we need (eventually) to swap.</p>
-<p>If such elements exist that solve the problem, then it is true that:
+complexity that your solution should have.</p><h1 id=4-counting-elements>4. Counting Elements</h1><p>Ok, here I feel a bit like cheating by using Python&rsquo;s <code>Counter</code> from
+the standard library&rsquo;s <code>collection</code> module.</p><h2 id=exercise-41-of-the-reading-material>Exercise 4.1 of the reading material</h2><p>Sometimes math allows you to literally kill algorithms&rsquo; time complexity.</p><p>Let $S_{A} = \sum_{i=0}^{n-1} a_i$ and $S_{B} = \sum_{i=0}^{n-1} b_i$.</p><p>Denote as $a_i$ and $b_j$ the elements of A and B we need (eventually) to swap.</p><p>If such elements exist that solve the problem, then it is true that:
 $$\displaylines{
-S_A - a_i + b_j = S_B + a_i - b_j \\<br>
-\Rightarrow 2 a_i - 2 b_j = S_A - S_B \\<br>
+S_A - a_i + b_j = S_B + a_i - b_j \\
+\Rightarrow 2 a_i - 2 b_j = S_A - S_B \\
 \Rightarrow a_i = b_j + (S_A - S_B) / 2
-}$$</p>
-<p>This means that our problem admits a solution if and only if $S_A - S_B$ is
-divisible by 2 and if the above equality holds for some i and j.</p>
-<p>This can be verified with an algorithm of complexity $O(n+m)$.</p>
-<p>Solution in Python:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>solution</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>B</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>m</span><span style=color:#000;font-weight:700>):</span>
-    <span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
-    <span style=color:#000>Sb</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>B</span><span style=color:#000;font-weight:700>)</span>
-    <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>Sb</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>%</span> <span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>:</span>
-        <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>False</span>
-    <span style=color:#000>values_A</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>set</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
-    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>v</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>B</span><span style=color:#000;font-weight:700>:</span>
-        <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>Sb</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>//</span> <span style=color:#0000cf;font-weight:700>2</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>v</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>values_A</span><span style=color:#000;font-weight:700>:</span>
-            <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>True</span>
-    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>False</span>
-</code></pre></div><h1 id=5-prefix-sums>5. Prefix Sums</h1>
-<p>This is a totally new concept/technique to me. It looks really powerful to
+}$$</p><p>This means that our problem admits a solution if and only if $S_A - S_B$ is
+divisible by 2 and if the above equality holds for some i and j.</p><p>This can be verified with an algorithm of complexity $O(n+m)$.</p><p>Solution in Python:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>solution</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>B</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>m</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>Sb</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>B</span><span style=color:#000;font-weight:700>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>Sb</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>%</span> <span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>False</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>values_A</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>set</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>v</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>B</span><span style=color:#000;font-weight:700>:</span>
+</span></span><span style=display:flex><span>        <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>Sa</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>Sb</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>//</span> <span style=color:#0000cf;font-weight:700>2</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>v</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>values_A</span><span style=color:#000;font-weight:700>:</span>
+</span></span><span style=display:flex><span>            <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>True</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87;font-weight:700>False</span>
+</span></span></code></pre></div><h1 id=5-prefix-sums>5. Prefix Sums</h1><p>This is a totally new concept/technique to me. It looks really powerful to
 avoid complexity $O(n^2)$ or $O(n \cdot m)$ and get $O(n)$ or $O(n+m)$
-instead.</p>
-<p>The idea is simple but I still need to acquire the skill to recognize problems
-where this technique can be used.</p>
-<h2 id=question-minavgtwoslice>Question MinAvgTwoSlice</h2>
-<p>This one was hard. I wasn&rsquo;t able to solve it by myself with a complexity
+instead.</p><p>The idea is simple but I still need to acquire the skill to recognize problems
+where this technique can be used.</p><h2 id=question-minavgtwoslice>Question MinAvgTwoSlice</h2><p>This one was hard. I wasn&rsquo;t able to solve it by myself with a complexity
 less than $O(n^2)$ without reading <em>&ldquo;There must be some slices, with length of
 two or three, having the minimal average value among all the slices&rdquo;</em> in
 <a href=https://codesays.com/2014/solution-to-min-avg-two-slice-by-codility/>this</a>
 blog post. Pretty obvious in retrospect, but I was nowhere near to getting
-there by myself.</p>
-<p>Solution in Python:</p>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>solution</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>):</span>
-    <span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>len</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
-
-    <span style=color:#000>partial_sums</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>*</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>)</span>
-    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>i</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#204a87>range</span><span style=color:#000;font-weight:700>(</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>N</span><span style=color:#000;font-weight:700>):</span>
-        <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>A</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span><span style=color:#000;font-weight:700>]</span>
-
-    <span style=color:#000>averages</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000;font-weight:700>[]</span>
-    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>l</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>,</span> <span style=color:#0000cf;font-weight:700>3</span><span style=color:#000;font-weight:700>]:</span>
-        <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>p</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#204a87>range</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>l</span><span style=color:#000;font-weight:700>):</span>
-            <span style=color:#000>q</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>p</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>l</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#0000cf;font-weight:700>1</span>
-            <span style=color:#000>averages</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>append</span><span style=color:#000;font-weight:700>([</span><span style=color:#000>p</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>q</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>q</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>p</span><span style=color:#000;font-weight:700>])</span> <span style=color:#ce5c00;font-weight:700>/</span> <span style=color:#000>l</span><span style=color:#000;font-weight:700>])</span>
-
-    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>min</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>averages</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>key</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87;font-weight:700>lambda</span> <span style=color:#000>x</span><span style=color:#000;font-weight:700>:</span> <span style=color:#000>x</span><span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>])[</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>]</span>
-</code></pre></div><hr>
-<p>That&rsquo;s all for the first part of this series, I&rsquo;ll add other posts as I go
-forward with the lessons.</p>
-</div>
-<br>
-<div class=navigation>
-<div>
-<img class=icon src=https://glumia.dev/img/back.svg alt=back>
-<a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/>Clojure, Python, C: three programming languages, one algorithm</a>
-</div>
-<div style=width:100%></div>
-<div>
-<a href=https://glumia.dev/blog/random-thoughts-on-software-engineering-and-science/>Random thoughts on Software Engineering and Science</a>
-<img class=icon src=https://glumia.dev/img/next.svg alt=next>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="footer column">
-<div class=container>
-<div class=copyright>
-<a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0 © 2021 Giuseppe Lumia</a>
-</div>
-<div class=icons>
-<a href=https://github.com/glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/github.svg alt=github>
-</a>
-<a href=https://twitter.com/glumia8 rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/twitter.svg alt=twitter>
-</a>
-<a href=https://hachyderm.io/@glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/mastodon.svg alt=mastodon>
-</a>
-<a href=https://www.linkedin.com/in/glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/linkedin.svg alt=linkedin>
-</a>
-<a href=mailto:gius@glumia.dev>
-<img class=icon src=https://glumia.dev/img/email.svg alt=email>
-</a>
-<a href=https://glumia.dev/index.xml>
-<img class=icon src=https://glumia.dev/img/rss.svg alt=rss>
-</a>
-<script>MathJax={tex:{inlineMath:[['$','$'],['\\(','\\)']],displayMath:[['$$','$$'],['\\[','\\]']],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:['script','noscript','style','textarea','pre']}}</script>
-<script type=text/javascript id=mathjax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script>
-</div>
-</div>
-</div>
-</body>
-</html>
+there by myself.</p><p>Solution in Python:</p><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>solution</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>    <span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#204a87>len</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>A</span><span style=color:#000;font-weight:700>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>partial_sums</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>*</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>)</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>i</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#204a87>range</span><span style=color:#000;font-weight:700>(</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>N</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>        <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>A</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>i</span><span style=color:#000;font-weight:700>]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#000>averages</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000;font-weight:700>[]</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>l</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>,</span> <span style=color:#0000cf;font-weight:700>3</span><span style=color:#000;font-weight:700>]:</span>
+</span></span><span style=display:flex><span>        <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>p</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#204a87>range</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>N</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>l</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>q</span> <span style=color:#ce5c00;font-weight:700>=</span> <span style=color:#000>p</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#000>l</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#0000cf;font-weight:700>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#000>averages</span><span style=color:#ce5c00;font-weight:700>.</span><span style=color:#000>append</span><span style=color:#000;font-weight:700>([</span><span style=color:#000>p</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>q</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000;font-weight:700>(</span><span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>q</span> <span style=color:#ce5c00;font-weight:700>+</span> <span style=color:#0000cf;font-weight:700>1</span><span style=color:#000;font-weight:700>]</span> <span style=color:#ce5c00;font-weight:700>-</span> <span style=color:#000>partial_sums</span><span style=color:#000;font-weight:700>[</span><span style=color:#000>p</span><span style=color:#000;font-weight:700>])</span> <span style=color:#ce5c00;font-weight:700>/</span> <span style=color:#000>l</span><span style=color:#000;font-weight:700>])</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>min</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>averages</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>key</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#204a87;font-weight:700>lambda</span> <span style=color:#000>x</span><span style=color:#000;font-weight:700>:</span> <span style=color:#000>x</span><span style=color:#000;font-weight:700>[</span><span style=color:#0000cf;font-weight:700>2</span><span style=color:#000;font-weight:700>])[</span><span style=color:#0000cf;font-weight:700>0</span><span style=color:#000;font-weight:700>]</span>
+</span></span></code></pre></div><hr><p>That&rsquo;s all for the first part of this series, I&rsquo;ll add other posts as I go
+forward with the lessons.</p></div><br><div class=navigation><div><img class=icon src=https://glumia.dev/img/back.svg alt=back>
+<a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/>Clojure, Python, C: three programming languages, one algorithm</a></div><div style=width:100%></div><div><a href=https://glumia.dev/blog/random-thoughts-on-software-engineering-and-science/>Random thoughts on Software Engineering and Science</a>
+<img class=icon src=https://glumia.dev/img/next.svg alt=next></div></div></div></div></div><div class="footer column"><div class=container><div class=copyright><a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0 © 2021 Giuseppe Lumia</a></div><div class=icons><a href=https://github.com/glumia rel=me target=_blank><img class=icon src=https://glumia.dev/img/github.svg alt=github>
+</a><a href=https://twitter.com/glumia8 rel=me target=_blank><img class=icon src=https://glumia.dev/img/twitter.svg alt=twitter>
+</a><a href=https://www.linkedin.com/in/glumia rel=me target=_blank><img class=icon src=https://glumia.dev/img/linkedin.svg alt=linkedin>
+</a><a href=mailto:gius@glumia.dev><img class=icon src=https://glumia.dev/img/email.svg alt=email>
+</a><a href=https://glumia.dev/index.xml><img class=icon src=https://glumia.dev/img/rss.svg alt=rss>
+</a><script>MathJax={tex:{inlineMath:[["$","$"],["\\(","\\)"]],displayMath:[["$$","$$"],["\\[","\\]"]],processEscapes:!0,processEnvironments:!0},options:{skipHtmlTags:["script","noscript","style","textarea","pre"]}}</script><script type=text/javascript id=mathjax-script async src=https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js></script></div></div></div></body></html>

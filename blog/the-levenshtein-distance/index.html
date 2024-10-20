@@ -1,148 +1,33 @@
-<!doctype html><html lang=en-us>
-<head>
-<meta charset=utf-8>
-<meta name=HandheldFriendly content="True">
-<meta name=MobileOptimized content="320">
-<meta name=viewport content="width=device-width,initial-scale=1">
-<meta property="twitter:site" content="@glumia8">
-<meta property="og:site_name" content="glumia's blog">
-<meta property="og:locale" content="en-US">
-<meta property="og:type" content="article">
-<meta property="og:url" content="https://glumia.dev/blog/the-levenshtein-distance/">
-<meta property="og:title" content="The Levenshtein Distance">
-<meta property="twitter:title" content="The Levenshtein Distance">
-<meta property="twitter:card" content="summary">
-<meta property="og:description" content>
-<meta property="twitter:description" content>
-<title>
-glumia's blog - The Levenshtein Distance
-</title>
-<link rel=canonical href=https://glumia.dev/blog/the-levenshtein-distance/>
-<link rel=stylesheet media=screen href=https://glumia.dev/main.min.344b18e53f6dc95dfb28120d4a8b13b71ea4ec54afb2363c6b19a36e9c112730.css>
-<link rel=stylesheet media="(min-width: 600px)" href=https://glumia.dev/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css>
-<link rel="shortcut icon" href=https://glumia.dev/favicon-32x32.png>
-</head>
-<body>
-<div class="header column">
-<div class=container>
-<a href=https://glumia.dev/><img class=logo src=https://glumia.dev/logo_glumia_512.jpg alt=logo></a>
-<div class=content>
-<a href=https://glumia.dev/><div class=name><h1>glumia's blog</h1></div></a>
-<nav>
-<ul>
-<li><a href=https://glumia.dev/blog/>Posts</a></li>
-<li><a href=https://glumia.dev/about/>About</a></li>
-<li><a href=https://glumia.dev/reading_list/>Reading list</a></li>
-</ul>
-</nav>
-</div>
-</div>
-</div>
-<div class="main post non-narrow zero-top-spacing column">
-<div class=container>
-<div class=content>
-<div class=front-matter>
-<div class=title-container>
-<div class=page-heading>
-The Levenshtein Distance
-</div>
-</div>
-<div class=meta>
-<div class=date title="Fri Jan 3 2020 00:00:00 UTC">Jan 3, 2020</div>
-<div class="reading-time middot">2 minute read</div>
-<div class=tags>
-<ul>
-<li class=middot><a href=https://glumia.dev/tags/algorithms>Algorithms</a> </li>
-<li class=middot><a href=https://glumia.dev/tags/python>Python</a> </li>
-</ul>
-</div>
-<div class=tags>
-<ul>
-</ul>
-</div>
-</div>
-</div>
-<div class=markdown>
-<p>It&rsquo;s fascinating how every problem you can think of in computer science 9 times out of
+<!doctype html><html lang=en-US><head><meta charset=utf-8><meta name=HandheldFriendly content="True"><meta name=MobileOptimized content="320"><meta name=viewport content="width=device-width,initial-scale=1"><meta property="twitter:site" content="@glumia8"><meta property="og:site_name" content="glumia's blog"><meta property="og:locale" content="en-US"><meta property="og:type" content="article"><meta property="og:url" content="https://glumia.dev/blog/the-levenshtein-distance/"><meta property="og:title" content="The Levenshtein Distance"><meta property="twitter:title" content="The Levenshtein Distance"><meta property="twitter:card" content="summary"><meta property="og:description" content><meta property="twitter:description" content><title>glumia's blog - The Levenshtein Distance
+</title><link rel=canonical href=https://glumia.dev/blog/the-levenshtein-distance/><link rel=stylesheet media=screen href=https://glumia.dev/main.min.344b18e53f6dc95dfb28120d4a8b13b71ea4ec54afb2363c6b19a36e9c112730.css><link rel=stylesheet media="(min-width: 600px)" href=https://glumia.dev/min600px.min.29a702a8deedd7ff0f3a8d63ebd113a0465676f50b06744470127a8897d198de.css><link rel="shortcut icon" href=https://glumia.dev/favicon-32x32.png></head><body><div class="header column"><div class=container><a href=https://glumia.dev/><img class=logo src=https://glumia.dev/logo_glumia_512.jpg alt=logo></a><div class=content><a href=https://glumia.dev/><div class=name><h1>glumia's blog</h1></div></a><nav><ul><li><a href=https://glumia.dev/blog/>Posts</a></li><li><a href=https://glumia.dev/about/>About</a></li><li><a href=https://glumia.dev/reading_list/>Reading list</a></li></ul></nav></div></div></div><div class="main post non-narrow zero-top-spacing column"><div class=container><div class=content><div class=front-matter><div class=title-container><div class=page-heading>The Levenshtein Distance</div></div><div class=meta><div class=date title="Fri Jan 3 2020 00:00:00 UTC">Jan 3, 2020</div><div class="reading-time middot">2 minute read</div><div class=tags><ul><li class=middot><a href=https://glumia.dev/tags/algorithms>Algorithms</a></li><li class=middot><a href=https://glumia.dev/tags/python>Python</a></li></ul></div><div class=tags><ul></ul></div></div></div><div class=markdown><p>It&rsquo;s fascinating how every problem you can think of in computer science 9 times out of
 10 was already tackled and solved by someone else. Today I was thinking about a
 way to suggest corrections for addresses inserted by our customers when I started to
 imagine an algorithm that used the mathematical notion of &lsquo;distance&rsquo; (check &lsquo;Metric
 (mathematics)&rsquo; on Wikipedia <sup id=fnref:1><a href=#fn:1 class=footnote-ref role=doc-noteref>1</a></sup> ) to give them some suggestions based on a set of valid
 addresses present on our DB. Well, now I find out that it&rsquo;s a well-known problem in
 computer science, that a wide range of algorithms<sup id=fnref:2><a href=#fn:2 class=footnote-ref role=doc-noteref>2</a></sup> has already been designed to solve
-it and that what I had in my mind was a variation of the Levenshtein distance!</p>
-<h4 id=a-code-snippet-in-python-that-implements-those-ideas>A code snippet in Python that implements those ideas</h4>
-<div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=color:#204a87;font-weight:700>from</span> <span style=color:#000>itertools</span> <span style=color:#204a87;font-weight:700>import</span> <span style=color:#000>zip_longest</span>
-
-
-<span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>strings_distance</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>x</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>y</span><span style=color:#000;font-weight:700>):</span>
-    <span style=color:#4e9a06>&#34;&#34;&#34;Compute a distance between strings x and y.&#34;&#34;&#34;</span>
-    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>((</span><span style=color:#0000cf;font-weight:700>0</span> <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000>m</span> <span style=color:#ce5c00;font-weight:700>==</span> <span style=color:#000>n</span> <span style=color:#204a87;font-weight:700>else</span> <span style=color:#0000cf;font-weight:700>1</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>m</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>n</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>zip_longest</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>x</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>y</span><span style=color:#000;font-weight:700>)))</span>
-
-
-<span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>suggestions</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>s</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>dictionary</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>distance</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>strings_distance</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>tol</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>4</span><span style=color:#000;font-weight:700>):</span>
-    <span style=color:#4e9a06>&#34;&#34;&#34;Use the distance function to search similar words inside the dictionary.
-</span><span style=color:#4e9a06>
-</span><span style=color:#4e9a06>    :param s: the string to get suggestions for.
-</span><span style=color:#4e9a06>    :param dictionary: a set/list of strings.
-</span><span style=color:#4e9a06>    :param distance: the function to use to compute the strings distance.
-</span><span style=color:#4e9a06>    :param int tol: max distance allowed between the input string and the
-</span><span style=color:#4e9a06>    suggestions.
-</span><span style=color:#4e9a06>    &#34;&#34;&#34;</span>
-    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#000;font-weight:700>{</span><span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>dictionary</span> <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000>distance</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>s</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>word</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>&lt;=</span> <span style=color:#000>tol</span><span style=color:#000;font-weight:700>}</span>
-</code></pre></div><section class=footnotes role=doc-endnotes>
-<hr>
-<ol>
-<li id=fn:1 role=doc-endnote>
-<p><a href=https://en.wikipedia.org/wiki/Metric_(mathematics)>https://en.wikipedia.org/wiki/Metric_(mathematics)</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-<li id=fn:2 role=doc-endnote>
-<p><a href=https://en.wikipedia.org/wiki/String_metric>https://en.wikipedia.org/wiki/String_metric</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p>
-</li>
-</ol>
-</section>
-</div>
-<br>
-<div class=navigation>
-<div>
-<img class=icon src=https://glumia.dev/img/back.svg alt=back>
-<a href=https://glumia.dev/blog/c-and-assembly-subtleties/>C and Assembly - Subtleties</a>
-</div>
-<div style=width:100%></div>
-<div>
-<a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/>Clojure, Python, C: three programming languages, one algorithm</a>
-<img class=icon src=https://glumia.dev/img/next.svg alt=next>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="footer column">
-<div class=container>
-<div class=copyright>
-<a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0 © 2021 Giuseppe Lumia</a>
-</div>
-<div class=icons>
-<a href=https://github.com/glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/github.svg alt=github>
-</a>
-<a href=https://twitter.com/glumia8 rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/twitter.svg alt=twitter>
-</a>
-<a href=https://hachyderm.io/@glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/mastodon.svg alt=mastodon>
-</a>
-<a href=https://www.linkedin.com/in/glumia rel=me target=_blank>
-<img class=icon src=https://glumia.dev/img/linkedin.svg alt=linkedin>
-</a>
-<a href=mailto:gius@glumia.dev>
-<img class=icon src=https://glumia.dev/img/email.svg alt=email>
-</a>
-<a href=https://glumia.dev/index.xml>
-<img class=icon src=https://glumia.dev/img/rss.svg alt=rss>
-</a>
-</div>
-</div>
-</div>
-</body>
-</html>
+it and that what I had in my mind was a variation of the Levenshtein distance!</p><h4 id=a-code-snippet-in-python-that-implements-those-ideas>A code snippet in Python that implements those ideas</h4><div class=highlight><pre tabindex=0 style=background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#204a87;font-weight:700>from</span> <span style=color:#000>itertools</span> <span style=color:#204a87;font-weight:700>import</span> <span style=color:#000>zip_longest</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>strings_distance</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>x</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>y</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>    <span style=color:#4e9a06>&#34;&#34;&#34;Compute a distance between strings x and y.&#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#204a87>sum</span><span style=color:#000;font-weight:700>((</span><span style=color:#0000cf;font-weight:700>0</span> <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000>m</span> <span style=color:#ce5c00;font-weight:700>==</span> <span style=color:#000>n</span> <span style=color:#204a87;font-weight:700>else</span> <span style=color:#0000cf;font-weight:700>1</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>m</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>n</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>zip_longest</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>x</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>y</span><span style=color:#000;font-weight:700>)))</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#204a87;font-weight:700>def</span> <span style=color:#000>suggestions</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>s</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>dictionary</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>distance</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#000>strings_distance</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>tol</span><span style=color:#ce5c00;font-weight:700>=</span><span style=color:#0000cf;font-weight:700>4</span><span style=color:#000;font-weight:700>):</span>
+</span></span><span style=display:flex><span>    <span style=color:#4e9a06>&#34;&#34;&#34;Use the distance function to search similar words inside the dictionary.
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    :param s: the string to get suggestions for.
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    :param dictionary: a set/list of strings.
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    :param distance: the function to use to compute the strings distance.
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    :param int tol: max distance allowed between the input string and the
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    suggestions.
+</span></span></span><span style=display:flex><span><span style=color:#4e9a06>    &#34;&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#204a87;font-weight:700>return</span> <span style=color:#000;font-weight:700>{</span><span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>for</span> <span style=color:#000>word</span> <span style=color:#204a87;font-weight:700>in</span> <span style=color:#000>dictionary</span> <span style=color:#204a87;font-weight:700>if</span> <span style=color:#000>distance</span><span style=color:#000;font-weight:700>(</span><span style=color:#000>s</span><span style=color:#000;font-weight:700>,</span> <span style=color:#000>word</span><span style=color:#000;font-weight:700>)</span> <span style=color:#ce5c00;font-weight:700>&lt;=</span> <span style=color:#000>tol</span><span style=color:#000;font-weight:700>}</span>
+</span></span></code></pre></div><div class=footnotes role=doc-endnotes><hr><ol><li id=fn:1><p><a href=https://en.wikipedia.org/wiki/Metric_(mathematics)>https://en.wikipedia.org/wiki/Metric_(mathematics)</a>&#160;<a href=#fnref:1 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li><li id=fn:2><p><a href=https://en.wikipedia.org/wiki/String_metric>https://en.wikipedia.org/wiki/String_metric</a>&#160;<a href=#fnref:2 class=footnote-backref role=doc-backlink>&#8617;&#xfe0e;</a></p></li></ol></div></div><br><div class=navigation><div><img class=icon src=https://glumia.dev/img/back.svg alt=back>
+<a href=https://glumia.dev/blog/c-and-assembly-subtleties/>C and Assembly - Subtleties</a></div><div style=width:100%></div><div><a href=https://glumia.dev/blog/clojure-python-c-three-programming-languages-one-algorithm/>Clojure, Python, C: three programming languages, one algorithm</a>
+<img class=icon src=https://glumia.dev/img/next.svg alt=next></div></div></div></div></div><div class="footer column"><div class=container><div class=copyright><a href=https://creativecommons.org/licenses/by-sa/4.0/>CC BY-SA 4.0 © 2021 Giuseppe Lumia</a></div><div class=icons><a href=https://github.com/glumia rel=me target=_blank><img class=icon src=https://glumia.dev/img/github.svg alt=github>
+</a><a href=https://twitter.com/glumia8 rel=me target=_blank><img class=icon src=https://glumia.dev/img/twitter.svg alt=twitter>
+</a><a href=https://www.linkedin.com/in/glumia rel=me target=_blank><img class=icon src=https://glumia.dev/img/linkedin.svg alt=linkedin>
+</a><a href=mailto:gius@glumia.dev><img class=icon src=https://glumia.dev/img/email.svg alt=email>
+</a><a href=https://glumia.dev/index.xml><img class=icon src=https://glumia.dev/img/rss.svg alt=rss></a></div></div></div></body></html>
