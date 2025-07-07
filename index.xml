@@ -1,6 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>glumia's blog</title><link>https://glumia.dev/</link><description>Recent content on glumia's blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Fri, 04 Jul 2025 21:37:23 +0200</lastBuildDate><atom:link href="https://glumia.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://glumia.dev/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://glumia.dev/about/</guid><description>&lt;p>Software engineer specialised in backend web development.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>glumia's blog</title><link>https://glumia.dev/</link><description>Recent content on glumia's blog</description><generator>Hugo</generator><language>en-US</language><lastBuildDate>Mon, 07 Jul 2025 23:31:05 +0200</lastBuildDate><atom:link href="https://glumia.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>About</title><link>https://glumia.dev/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://glumia.dev/about/</guid><description>&lt;p>Software engineer specialised in backend web development.&lt;/p>
 &lt;p>I like command line interfaces, unix-like operating systems, C, Go, Python, lisps,
-vim, and well written code or documentation.&lt;/p></description></item><item><title>Injecting instructions into LLMs</title><link>https://glumia.dev/blog/injecting-instructions-into-llms/</link><pubDate>Fri, 04 Jul 2025 21:37:23 +0200</pubDate><guid>https://glumia.dev/blog/injecting-instructions-into-llms/</guid><description>&lt;ol>
+vim, and well written code or documentation.&lt;/p></description></item><item><title>A quote from Salvatore Sanfilippo</title><link>https://glumia.dev/blog/a-quote-from-salvatore-sanfilippo/</link><pubDate>Mon, 07 Jul 2025 23:31:05 +0200</pubDate><guid>https://glumia.dev/blog/a-quote-from-salvatore-sanfilippo/</guid><description>&lt;blockquote>
+&lt;p>&amp;hellip;non importa dire &amp;ldquo;oggi ho lavorato 12 ore&amp;rdquo; il punto è che: cos&amp;rsquo;è che è
+uscito da ste 12 ore di lavoro? Hai qualcosa da mostrare che si accumulerà
+con quello che farai domani e si accumulerà ancora e poi tutti questi pezzi
+assieme formano qualcosa da mostrare?&lt;/p>
+&lt;/blockquote>
+&lt;ul>
+&lt;li>&lt;a href="https://www.youtube.com/watch?v=m2i1UQZ_CGA&amp;amp;t=5862s">Salvatore Sanfilippo (aka antirez), Interview with Mr. RIP&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Injecting instructions into LLMs</title><link>https://glumia.dev/blog/injecting-instructions-into-llms/</link><pubDate>Fri, 04 Jul 2025 21:37:23 +0200</pubDate><guid>https://glumia.dev/blog/injecting-instructions-into-llms/</guid><description>&lt;ol>
 &lt;li>
 &lt;p>&lt;a href="https://github.com/glumia/glumia-blog-files/commit/8d7d7026325535ecf2666e8f2a4a028ac17a964b">Add some nicely formatted instructions that aren&amp;rsquo;t visible to humans to your webpage&lt;/a>
 &lt;img src="https://glumia.dev/blog/injecting-instructions-into-llms/html-snippet.png" alt="instruction injection snippet">&lt;/p>
